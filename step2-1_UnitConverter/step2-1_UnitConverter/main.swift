@@ -10,11 +10,20 @@ import Foundation
 
 let str = readLine()
 
+//소숫점 n자리에서 반올림 extension
+//https://stackoverflow.com/questions/27338573/rounding-a-double-value-to-x-number-of-decimal-places-in-swift
+extension Double {
+    func rounded(toPlace places: Int)-> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded()/divisor
+    }
+}
 
 // FUNCTION : convert centimeter To Meter
 func convertCmToM (str: String) -> Void {
     let doubleValue : Double = NSString(string: str as NSString).doubleValue
-    let result = Double(doubleValue/100)
+    let result = Double(doubleValue/100).rounded(toPlace: 0)
+    
     print ("\(result)m")
     
 }
@@ -22,7 +31,7 @@ func convertCmToM (str: String) -> Void {
 // FUNCTION : convert Meter To centimeter
 func convertMToCm (str: String ) -> Void {
     let doubleValue : Double = NSString(string: str as NSString).doubleValue
-    let result = Double(doubleValue*100)
+    let result = Double(doubleValue*100).rounded(toPlace: 4)
     print ("\(result)cm")
     
 }
