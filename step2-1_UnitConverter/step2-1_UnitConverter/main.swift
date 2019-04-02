@@ -8,6 +8,7 @@
 
 import Foundation
 
+//2-3 STEP - 값 입력
 let str = readLine()
 
 //소숫점 n자리에서 반올림 extension
@@ -19,24 +20,28 @@ extension Double {
     }
 }
 
-// FUNCTION : convert centimeter To Meter
+// 2-2 FUNCTION : convert centimeter To Meter
+//  - 소숫점 처리를 위해 extension 활용. 첫째 자리에서 반올림
 func convertCmToM (str: String) -> Void {
     let doubleValue : Double = NSString(string: str as NSString).doubleValue
-    let result = Double(doubleValue/100).rounded(toPlace: 0)
+    let divisor: Double = 100
+    let result = Double(doubleValue/divisor).rounded(toPlace: 0)
     
     print ("\(result)m")
     
 }
 
-// FUNCTION : convert Meter To centimeter
+// 2-2 FUNCTION : convert Meter To centimeter
+//  - 소숫점 처리를 위해 extension 활용. 4자리에서 반올림
 func convertMToCm (str: String ) -> Void {
     let doubleValue : Double = NSString(string: str as NSString).doubleValue
-    let result = Double(doubleValue*100).rounded(toPlace: 4)
+    let times: Double = 100
+    let result = Double(doubleValue*times).rounded(toPlace: 4)
     print ("\(result)cm")
     
 }
 
-// FUNCTION : unitConverter
+// 2-2 FUNCTION : unitConverter
 func unitConverter (input: String) -> Void {
     let strArr = input.split(separator: " ")
     if strArr.count == 0{
