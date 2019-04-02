@@ -121,26 +121,50 @@ str = "==== 1-6 times tables ; Arrays and Subroutine ===="
 print (str)
 let input = 0
 var gugudan = [Int].init(repeating: input, count : 9)
-var two = 2
-var index = 1
-for i in gugudan {  // 여기서 i는 let constant 이다
-    gugudan[i] = gugudan[i]+2
-    print("\(two) * \(index) : \(gugudan[i])")
+
+// using enumerate() method
+str = "==== using enumerate() method ===="
+print (str)
+for (index, element) in gugudan.enumerated() {  // 여기서 i는 let constant 이다
+    if index == 0 {
+        gugudan[index] = 2
+    }else{
+        gugudan[index] = gugudan[index-1]+2
+    }
+}
+for (index, element) in gugudan.enumerated() {  // 여기서 i는 let constant 이다
+    print(gugudan[index])
+}
+
+// using plan for loop
+str = "==== using plan for loop ===="
+print (str)
+gugudan = [Int].init(repeating: input, count : 9)
+
+var index = 0
+for i in gugudan {       // 여기서 _ 혹은 i는 gugudan의 element이다
+    if index == 0{
+        gugudan[index] = 2
+    }else {
+        gugudan[index] = gugudan[index-1]+2
+    }
     index = index + 1
-//    i = i + 1
+}
+
+for i in gugudan {
+    print(i)
 }
 
 // Subroutine
-func multiply( input: Int, range : Int ) -> Void {
-    print("--- \(input) times table print --- \n")
+str = "==== using subroutine method ===="
+print (str)
+func gugu( input: Int, range : Int ) -> Void {
+    print("--- \(input) times table print using subroutine --- \n")
     for index in 1...range {
         print("\(input) * \(index) = \(input * index) \n")
     }
 }
 
-multiply(input: first, range: 9)
-multiply(input: second, range: 9)
-
-
-
+gugu(input: first, range: 9)
+gugu(input: second, range: 9)
 
