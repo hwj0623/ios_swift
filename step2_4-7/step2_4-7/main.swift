@@ -133,7 +133,6 @@ let liter: [String: Double] = [
     "qt": 0.879877,
     "pt": 1.75975,
     defaultUnit: 0.264172   //gallon
-
 ]
 let gallon: [String: Double] = [
     "liter": 4.54609,
@@ -158,6 +157,7 @@ let UnitDictionaryCoefficient: [String: [String: Double]] = [
     "cm": centimeter,
     "m": meter,
     "inch": inch,
+    "yard": yard,
     "g": gram,
     "kg": kilogram,
     "lb": pound,
@@ -191,10 +191,8 @@ func parseDigitToUnit (input: String) -> (tupleVar){
     //from, to element 개수 구분
     if(firstIdx != input.endIndex){
         let to = input.split(separator: " ",  omittingEmptySubsequences: true)[1]
-        print ("\n > digitNumber : \(digitNumber) , from : \(from) , to : \(to)")
         units = [from, String (to)]
     }else{
-        print ("\n > digitNumber : \(digitNumber) , from : \(from) ")
         units = [from]
     }
 
@@ -204,8 +202,7 @@ func parseDigitToUnit (input: String) -> (tupleVar){
 /**********************
  *  convert function  *
  **********************/
-func convertDigit(number:Double, to :Double)->Double{
-    print(">> 변환 값 : \(number * to)")
+func convertDigit(number:Double, to : Double)->Double{
     return number * to
 }
 
@@ -266,26 +263,66 @@ func unitConverterImplicitVolumeUtil(number: Double, units: [String]) -> Double{
             result = convertDigit(number: number, to: to)
             print("\(units[0])에 대한 기본 변환 완료 : \(result)")
         }else{
-            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다")
+            print("변환할(convert To) 부피(volume) 단위가 존재하지 않습니다")
         }
     }else{
-        print("존재하지 않는 원본(convert From) 질량(mass) 단위 입니다.")
+        print("존재하지 않는 원본(convert From) 부피(volume) 단위 입니다.")
     }
     return result
 }
+
+// by pass 함수
+func cmBypass (_ number: Double, _ from : String, _ to : String, _ dict1: [String: Double]) -> Double{
+    var result:Double = 0
+    let cm = "cm"
+    let meter:Double = 0.01
+
+    if let temp = dict1[cm], let temp2 = centimeter[to]{                                 //ex; 1 inch -> 2.54 cm
+        let bypass = convertDigit(number: number, to: temp)  // ex; inch -> cm
+        print("bypass 값(cm 중간변환 값) > : \(bypass)")
+        result = convertDigit(number: bypass, to: temp2)     // cm -> 0.01 m
+    }else {
+        print("\(from)의 cm 중간 변환이 불가능합니다.")
+        result = -1
+    }
+    print("meter 변환 값 > : \(result)")
+
+    return result
+
+}
+
 
 //거리 변환기 Util함수(1) : from -> to 명확히 주어진 경우
 func unitConverterExplicitDistUtil(number: Double,  units: [String]) -> Double{
     var result: Double = -1
     if let from = UnitDictionaryCoefficient[units[0]] {
+        print("from > : \(from)")
         if let to = from[units[1]]{
-            result = convertDigit(number: number, to: to)
+            
+            //bypass 거치기 위한 조건문
+            switch (units[0], units[1]){
+                case ("inch", "m"):
+                    result = cmBypass(number, units[0], units[1], from)
+                
+                case ("yard", "m"):
+                    result = cmBypass(number, units[0], units[1], from)
+                
+                case ("m", "inch"):
+                    result = cmBypass(number, units[0], units[1], from)
+
+                case ("m", "yard"):
+                    result = cmBypass(number, units[0], units[1], from)
+
+                default :
+                    result = convertDigit(number: number, to: to)
+            }
+            
             print("\(units[0])에서 \(units[1])로 변환 완료 : \(result)")
         }else{
-            print("변환할(convert To) 부피(volume) 단위가 존재하지 않습니다")
+            print("변환할(convert To) 거리(distance) 단위가 존재하지 않습니다")
         }
     }else{
-        print("존재하지 않는 원본(convert From) 부피(volume) 단위 입니다.")
+        print("존재하지 않는 원본(convert From) 거리(distance) 단위 입니다.")
     }
     return result
 }
@@ -297,15 +334,15 @@ func unitConverterImplicitDistUtil(number: Double,  units: [String]) -> Double{
             result = convertDigit(number: number, to: to)
              print("\(units[0])에 대한 기본 변환 완료 : \(result)")
         }else{
-            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다")
+            print("변환할(convert To) 거리(distance) 단위가 존재하지 않습니다")
         }
     }else{
-        print("존재하지 않는 원본(convert From) 질량(mass) 단위 입니다.")
+        print("존재하지 않는 원본(convert From) 거리(distance) 단위 입니다.")
     }
     return result
 }
 
-/* 거리 변환기 */
+/* 2-4 거리 변환기 */
 func unitConvertDist (number: Double, units: [String]) -> Double{
     //units element가 2개면
     var result:Double = 0
@@ -316,7 +353,7 @@ func unitConvertDist (number: Double, units: [String]) -> Double{
     }
     return result
 }
-/* 질량 변환기 */
+/* 2-5 질량 변환기 */
 func unitConvertMass(number: Double, units: [String]) -> Double{
     var result: Double = 0
 
@@ -327,7 +364,7 @@ func unitConvertMass(number: Double, units: [String]) -> Double{
     }
     return result
 }
-/* 부피 변환기 */
+/* 2-6 부피 변환기 */
 func unitConvertVolume(number: Double, units: [String]) -> Double{
     var result: Double = 0
     if units.count == 2{
@@ -337,6 +374,7 @@ func unitConvertVolume(number: Double, units: [String]) -> Double{
     }
     return result
 }
+
 // 변환기
 func unitConverter (number: Double, units: [String] )-> Void{
     //변환기 타입 구분
