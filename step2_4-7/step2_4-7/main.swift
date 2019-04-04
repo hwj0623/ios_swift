@@ -272,11 +272,11 @@ func unitConverterImplicitVolumeUtil(number: Double, units: [String]) -> Double{
 }
 
 // by pass 함수
+// from단위에서 1차적으로 얻은 dict1에 대해 cm으로 변환 후, centimeter 딕셔너리에서 다시 to 단위로 변환
 func cmBypass (_ number: Double, _ from : String, _ to : String, _ dict1: [String: Double]) -> Double{
     var result:Double = 0
     let cm = "cm"
-    let meter:Double = 0.01
-
+    
     if let temp = dict1[cm], let temp2 = centimeter[to]{                                 //ex; 1 inch -> 2.54 cm
         let bypass = convertDigit(number: number, to: temp)  // ex; inch -> cm
         print("bypass 값(cm 중간변환 값) > : \(bypass)")
@@ -292,7 +292,7 @@ func cmBypass (_ number: Double, _ from : String, _ to : String, _ dict1: [Strin
 }
 
 
-//거리 변환기 Util함수(1) : from -> to 명확히 주어진 경우
+// 거리 변환기 Util함수(1) : from -> to 명확히 주어진 경우
 func unitConverterExplicitDistUtil(number: Double,  units: [String]) -> Double{
     var result: Double = -1
     if let from = UnitDictionaryCoefficient[units[0]] {
@@ -332,7 +332,7 @@ func unitConverterImplicitDistUtil(number: Double,  units: [String]) -> Double{
     if let from = UnitDictionaryCoefficient[units[0]] {
         if let to = from[defaultUnit]{
             result = convertDigit(number: number, to: to)
-             print("\(units[0])에 대한 기본 변환 완료 : \(result)")
+             print("\(units[0])에 대한 기본 변환 완료 : \(result) m")
         }else{
             print("변환할(convert To) 거리(distance) 단위가 존재하지 않습니다")
         }
@@ -401,8 +401,12 @@ func start()-> Void{
             break
         }
         if let inputString = str {
-            let ret = parseDigitToUnit(input: inputString)
-            unitConverter(number: ret.0, units: ret.1)
+            if inputString.count > 0 {
+                let ret = parseDigitToUnit(input: inputString)
+                unitConverter(number: ret.0, units: ret.1)
+            }else{
+                print("값을 입력하세요")
+            }
         }else{
             print("값을 입력하세요")
         }
