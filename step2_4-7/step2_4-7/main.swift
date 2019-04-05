@@ -21,8 +21,7 @@ extension String {
     func unitSeperate() -> [String] {
         var units: [String] = []
         var digits: [String] = []
-        if let regex = try? NSRegularExpression(pattern: "[a-zA-Z]+$", options: .caseInsensitive)
-        {
+        if let regex = try? NSRegularExpression(pattern: "[a-zA-Z]+$", options: .caseInsensitive){
             let string = self as NSString
             units = regex.matches(
                             in: self,
@@ -31,8 +30,7 @@ extension String {
                             )
                           .map { string.substring(with: $0.range) }
         }
-        if let regex = try? NSRegularExpression(pattern: "^[^a-zA-Z]*", options: .caseInsensitive)
-        {
+        if let regex = try? NSRegularExpression(pattern: "^[^a-zA-Z]*", options: .caseInsensitive){
             let string = self as NSString
             digits = regex.matches(
                             in: self,
@@ -56,6 +54,8 @@ let dist = "dist"
 let mass = "mass"
 let volume = "volume"
 
+/// 단위 딕셔너리 : 각 단위의 도량형 유형을 구분
+/* Unit Type Dictionary */
 let unitDictionary : [String : String] = [
     "cm": dist,
     "m": dist,
@@ -70,28 +70,28 @@ let unitDictionary : [String : String] = [
     "qt": volume,
     "gal": volume
 ]
-
-/********************
- *  Dictionary for units  *
- ****************** */
+/****************************
+ * Sub Dictionary for units *
+ ****************************/
 let defaultUnit = "default"
+/* Sub Dictionary */
 let centimeter : [String : Double] = [
     "m": 0.01,
     "inch": 0.393701,
     "yard": 0.0109361,
-    defaultUnit: 0.01
+    defaultUnit: 0.01       //meter
 ]
 let meter : [String : Double] = [
     "cm": 100,
     "inch": 39.3701,
     "yard": 1.09361,
-    defaultUnit: 100
+    defaultUnit: 100        //centimeter
 ]
 let inch : [String: Double] = [
     "cm": 2.54,
     "yard": 0.0277778,
     "m": 0.0254,
-    defaultUnit: 2.54
+    defaultUnit: 2.54       //centimeter
 ]
 let yard : [String: Double] = [
     "cm": 91.44,
@@ -103,19 +103,19 @@ let gram : [String: Double] = [
     "kg": 0.001,
     "oz": 0.035274,
     "lb": 0.002204625,
-    defaultUnit: 0.001  //kilogram
+    defaultUnit: 0.001      //kilogram
 ]
 let kilogram: [String: Double] = [
     "g": 1000,
     "oz": 0.035274,
     "lb": 0.002204625,
-    defaultUnit: 1000   //gram
+    defaultUnit: 1000       //gram
 ]
 let ounce: [String: Double] = [
     "g": 28.3495,
     "kg" : 0.0283495,
     "lb" : 0.0625,
-    defaultUnit: 0.0625 //pound
+    defaultUnit: 0.0625     //pound
 ]
 let pound: [String: Double] = [
     "g": 453.592,
@@ -148,6 +148,7 @@ let pint: [String: Double] = [
     defaultUnit: 0.568261   //liter
 ]
 
+/* Main Dictionary */
 let unitDictionaryCoefficient: [String: [String: Double]] = [
     "cm": centimeter,
     "m": meter,
@@ -182,14 +183,14 @@ func parseDigitToUnit (input: String) -> (digitUnitTuple){
 
     let digitNumber: Double = NSString(string: digitUnitArr[numberIndex] as NSString).doubleValue
     let fromUnit = digitUnitArr[unitIndex]
+    
     let units: [String]
-
     ///from, to element 개수 구분
     if (firstIdx != input.endIndex){
         let toUnit = input.split(separator: " ",  omittingEmptySubsequences: true)[1]
         units = [fromUnit, String (toUnit)]
     }else{
-        units = [fromUnit]
+        units = [fromUnit, String (defaultUnit)]
     }
 
     return (digit: digitNumber, units: units)
@@ -205,70 +206,7 @@ func convertDigit(_ digit :Double, to : Double)->Double{
 /**********************
  *  utility function  *
  **********************/
-/// 질량 변환기 보조함수(1)
-func unitConverterExplicitMassUtil(_ digit: Double, _ units: [String]) -> Double{
-    var result: Double = -1
-    if let from = unitDictionaryCoefficient[units[0]] {
-        if let to = from[units[1]]{
-            result = convertDigit(digit, to: to)
-            print("\(units[0])에서 \(units[1])로 변환 완료 : \(result)")
-        }else{
-            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다")
-        }
-    }else{
-        print("존재하지 않는 원본(convert From) 질량(mass) 단위 입니다.")
-    }
-    return result
-}
-/// 질량 변환기 보조함수(2)
-func unitConverterImplicitMassUtil(_ digit: Double, _ units: [String]) -> Double{
-    var result: Double = -1
-    if let from = unitDictionaryCoefficient[units[0]] {
-        if let to = from[defaultUnit]{
-            result = convertDigit(digit, to: to)
-            print("\(units[0])에 대한 기본 변환 완료 : \(result)")
-        }else{
-            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다")
-        }
-    }else{
-        print("존재하지 않는 원본(convert From) 질량(mass) 단위 입니다.")
-    }
-    return result
-}
-
-/// 부피 변환기 보조함수(1)
-func unitConverterExplicitVolumeUtil(_ digit: Double, _ units: [String]) -> Double{
-    var result: Double = -1
-    if let from = unitDictionaryCoefficient[units[0]] {
-        if let to = from[units[1]]{
-            result = convertDigit(digit, to: to)
-            print("\(units[0])에서 \(units[1])로 변환 완료 : \(result)")
-        }else{
-            print("변환할(convert To) 부피(volume) 단위가 존재하지 않습니다")
-        }
-    }else{
-        print("존재하지 않는 원본(convert From) 부피(volume) 단위 입니다.")
-    }
-    return result
-}
-/// 부피 변환기 보조함수(2)
-func unitConverterImplicitVolumeUtil(_ digit: Double, _ units: [String]) -> Double{
-    var result: Double = -1
-    if let from = unitDictionaryCoefficient[units[0]] {
-        if let to = from[defaultUnit]{
-            result = convertDigit(digit, to: to)
-            print("\(units[0])에 대한 기본 변환 완료 : \(result)")
-        }else{
-            print("변환할(convert To) 부피(volume) 단위가 존재하지 않습니다")
-        }
-    }else{
-        print("존재하지 않는 원본(convert From) 부피(volume) 단위 입니다.")
-    }
-    return result
-}
-
-/// by pass 함수
-/// from단위에서 1차적으로 얻은 dict1에 대해 cm으로 변환 후, centimeter 딕셔너리에서 다시 to 단위로 변환
+/// 거리 by pass 함수 : from단위에서 1차적으로 얻은 dict1에 대해 cm으로 변환 후, centimeter 딕셔너리에서 다시 to 단위로 변환
 func cmBypass (_ digit: Double, _ from : String, _ to : String, _ dict1: [String: Double]) -> Double{
     var result:Double = 0
     let cm = "cm"
@@ -283,14 +221,42 @@ func cmBypass (_ digit: Double, _ from : String, _ to : String, _ dict1: [String
         result = -1
     }
     print("meter 변환 값 > : \(result)")
-
     return result
-
+}
+/// 질량 변환기 보조함수(1) from : from의 다른 Unit에 대한 가중치 딕셔너리 / to : from에 대한 가중치 값
+func unitConverterMassUtil(_ digit: Double, _ units: [String]) -> Double{
+    var result: Double = -1
+    if let from = unitDictionaryCoefficient[units[0]] {
+        if let to = from[units[1]]{
+            result = convertDigit(digit, to: to)
+            print("\(units[0])에서 \(units[1]) 변환 완료 : \(result)")
+        }else{
+            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다")
+        }
+    }else{
+        print("존재하지 않는 원본(convert From) 질량(mass) 단위 입니다.")
+    }
+    return result
 }
 
+/// 부피 변환기 보조함수(1)
+func unitConverterVolumeUtil(_ digit: Double, _ units: [String]) -> Double{
+    var result: Double = -1
+    if let from = unitDictionaryCoefficient[units[0]] {
+        if let to = from[units[1]]{
+            result = convertDigit(digit, to: to)
+            print("\(units[0])에서 \(units[1]) 변환 완료 : \(result)")
+        }else{
+            print("변환할(convert To) 부피(volume) 단위가 존재하지 않습니다")
+        }
+    }else{
+        print("존재하지 않는 원본(convert From) 부피(volume) 단위 입니다.")
+    }
+    return result
+}
 
 /// 거리 변환기 Util함수(1) : from -> to 명확히 주어진 경우
-func unitConverterExplicitDistUtil(_ digit: Double,  _ units: [String]) -> Double{
+func unitConverterDistUtil(_ digit: Double,  _ units: [String]) -> Double{
     var result: Double = -1
     if let from = unitDictionaryCoefficient[units[0]] {
         print("from > : \(from)")
@@ -299,36 +265,16 @@ func unitConverterExplicitDistUtil(_ digit: Double,  _ units: [String]) -> Doubl
             switch (units[0], units[1]){
                 case ("inch", "m"):
                     result = cmBypass(digit, units[0], units[1], from)
-                
                 case ("yard", "m"):
                     result = cmBypass(digit, units[0], units[1], from)
-                
                 case ("m", "inch"):
                     result = cmBypass(digit, units[0], units[1], from)
-
                 case ("m", "yard"):
                     result = cmBypass(digit, units[0], units[1], from)
-
                 default :
                     result = convertDigit(digit, to: to)
             }
-            
-            print("\(units[0])에서 \(units[1])로 변환 완료 : \(result)")
-        }else{
-            print("변환할(convert To) 거리(distance) 단위가 존재하지 않습니다")
-        }
-    }else{
-        print("존재하지 않는 원본(convert From) 거리(distance) 단위 입니다.")
-    }
-    return result
-}
-/// 거리 변환기 Util함수(2) : from만 주어진 경우
-func unitConverterImplicitDistUtil(_ digit: Double, _ units: [String]) -> Double{
-    var result: Double = -1
-    if let from = unitDictionaryCoefficient[units[0]] {
-        if let to = from[defaultUnit]{
-            result = convertDigit(digit, to: to)
-             print("\(units[0])에 대한 기본 변환 완료 : \(result) m")
+            print("\(units[0])에서 \(units[1]) 변환 완료 : \(result)")
         }else{
             print("변환할(convert To) 거리(distance) 단위가 존재하지 않습니다")
         }
@@ -338,36 +284,23 @@ func unitConverterImplicitDistUtil(_ digit: Double, _ units: [String]) -> Double
     return result
 }
 
-/* 2-4 거리 변환기 */
+/* 2-4,5 거리 변환기 */
 func unitConvertDist (_ digit: Double, _ units: [String]) -> Double{
     //units element가 2개면
     var result:Double = 0
-    if units.count == 2 {
-        result = unitConverterExplicitDistUtil(digit,  units)
-    }else {//1개면
-        result = unitConverterImplicitDistUtil(digit,  units)
-    }
+    result = unitConverterDistUtil(digit,  units)
     return result
 }
-/* 2-5 질량 변환기 */
+/* 2-6 질량 변환기 */
 func unitConvertMass(_ digit : Double, _ units: [String]) -> Double{
     var result: Double = 0
-
-    if units.count == 2{
-        result = unitConverterExplicitMassUtil(digit,  units)
-    }else{
-        result = unitConverterImplicitMassUtil(digit,  units)
-    }
+    result = unitConverterMassUtil(digit,  units)
     return result
 }
-/* 2-6 부피 변환기 */
+/* 2-7 부피 변환기 */
 func unitConvertVolume( _ digit: Double, _ units: [String]) -> Double{
     var result: Double = 0
-    if units.count == 2{
-        result = unitConverterExplicitVolumeUtil(digit,  units)
-    }else{
-        result = unitConverterImplicitVolumeUtil(digit,  units)
-    }
+    result = unitConverterVolumeUtil(digit,  units)
     return result
 }
 
@@ -399,7 +332,7 @@ func start()-> Void{
         if let inputString = str {
             if inputString.count > 0 {  ///
                 let digitAndUnitsTuple = parseDigitToUnit(input: inputString)
-                unitConverter(digit: digitAndUnitsTuple.0, units: digitAndUnitsTuple.1)
+                print ("digitAndUnitsTuple : \(digitAndUnitsTuple)")
             }else{
                 print("값을 입력하세요")
             }
