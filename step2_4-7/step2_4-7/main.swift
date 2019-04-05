@@ -17,34 +17,22 @@ extension Double {
 /// 2-4
 /// 18cm 등 수치와 단위가 혼재된 단어에 대한 정규식
 /// "128cm" -> [ "128", "cm"]
+/// 추가학습 : 사용자가 입력한 값 하나로 여러 단위로 변환해서 출력하도록 개선하기 위한 파싱 기능 추가
 extension String {
-    func unitSeperate() -> [String] {
-        var units: [String] = []
-        var digits: [String] = []
-        if let regex = try? NSRegularExpression(pattern: "[a-zA-Z]+$", options: .caseInsensitive){
-            let string = self as NSString
-            units = regex.matches(
-                            in: self,
-                            options: [],
-                            range: NSRange(location: 0, length: string.length)
-                            )
-                          .map { string.substring(with: $0.range) }
+    /// 정규식을 입력하면 해당 필터를 통해 구분된 문자열 배열을 리턴
+    func unitSeprateFromString(for regex:String, in text : String) -> [String] {
+        do {
+            if let regex = try? NSRegularExpression(pattern: regex, options: .caseInsensitive){
+                let results = regex.matches(in: text, options: [],
+                                            range: NSRange(text.startIndex...,  in: text))
+                let test: [String] = results.map{
+                    String(text[Range($0.range, in: text)!])
+                }
+                return test
+            }
         }
-        if let regex = try? NSRegularExpression(pattern: "^[^a-zA-Z]*", options: .caseInsensitive){
-            let string = self as NSString
-            digits = regex.matches(
-                            in: self,
-                            options: [],
-                            range: NSRange(location: 0, length: string.length)
-                            )
-                          .map { string.substring(with: $0.range) }
-        }
-        if units.count != 0 && digits.count != 0 {
-            digits.append(units[0])
-            return digits
-        }else{
-            return []
-        }
+        // 실패시 빈 문자열 리턴
+        return []
     }
 }
 /********************
@@ -171,26 +159,19 @@ typealias digitUnitTuple = (Double, [String])
 
 ///숫자와 파싱 분리
 func parseDigitToUnit (input: String) -> (digitUnitTuple){
-    ///18cm와 inch를 " "로 분리
-    let firstIdx = input.firstIndex(of: " ") ?? input.endIndex
-    let digitAndUnit = String(input[..<firstIdx])
-
-    /// digit과 from unit을 분리
-    let digitUnitArr = digitAndUnit.unitSeperate()
-
-    let numberIndex = digitUnitArr.startIndex
-    let unitIndex = digitUnitArr.endIndex-1
-
-    let digitNumber: Double = NSString(string: digitUnitArr[numberIndex] as NSString).doubleValue
-    let fromUnit = digitUnitArr[unitIndex]
     
-    let units: [String]
-    ///from, to element 개수 구분
-    if (firstIdx != input.endIndex){
-        let toUnit = input.split(separator: " ",  omittingEmptySubsequences: true)[1]
-        units = [fromUnit, String (toUnit)]
-    }else{
-        units = [fromUnit, String (defaultUnit)]
+    let numberRegex = "[0-9]+"
+    let specialCharacterRemovalRegex = "[^ ~!@#$%^&*()_+-=\\,./'<>?\"]+"
+    
+    // double value
+    let digitNumber = NSString(string: input.unitSeprateFromString(for: numberRegex, in: input)[0]
+        as NSString ).doubleValue
+    // String Array
+    var units:[String] = input.unitSeprateFromString(for: specialCharacterRemovalRegex, in: input)
+   
+    /// 전환할 unit단위가 생략된 경우 default 입력
+    if units.count == 1 {
+        units.append(String (defaultUnit))
     }
 
     return (digit: digitNumber, units: units)
@@ -231,7 +212,7 @@ func unitConverterMassUtil(_ digit: Double, _ units: [String]) -> Double{
             result = convertDigit(digit, to: to)
             print("\(units[0])에서 \(units[1]) 변환 완료 : \(result)")
         }else{
-            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다")
+            print("변환할(convert To) 질량(mass) 단위가 존재하지 않습니다 : \(units)")
         }
     }else{
         print("존재하지 않는 원본(convert From) 질량(mass) 단위 입니다.")
@@ -285,22 +266,32 @@ func unitConverterDistUtil(_ digit: Double,  _ units: [String]) -> Double{
 }
 
 /* 2-4,5 거리 변환기 */
-func unitConvertDist (_ digit: Double, _ units: [String]) -> Double{
-    //units element가 2개면
-    var result:Double = 0
-    result = unitConverterDistUtil(digit,  units)
+func unitConvertDist (_ digit: Double, _ units: [String]) -> [String:Double]{
+
+    var result = [String : Double]()
+    for i in 1..<units.count {
+        let subunit: [ String ] = [units[0] , units[i]]
+        result.updateValue( unitConverterDistUtil(digit,  subunit), forKey: units[i])
+    }
+
     return result
 }
 /* 2-6 질량 변환기 */
-func unitConvertMass(_ digit : Double, _ units: [String]) -> Double{
-    var result: Double = 0
-    result = unitConverterMassUtil(digit,  units)
+func unitConvertMass(_ digit : Double, _ units: [String]) -> [String:Double]{
+    var result = [String : Double]()
+    for i in 1..<units.count {
+        let subunit: [ String ] = [units[0] , units[i]]
+        result.updateValue( unitConverterMassUtil(digit,  subunit), forKey: units[i])
+    }
     return result
 }
 /* 2-7 부피 변환기 */
-func unitConvertVolume( _ digit: Double, _ units: [String]) -> Double{
-    var result: Double = 0
-    result = unitConverterVolumeUtil(digit,  units)
+func unitConvertVolume( _ digit: Double, _ units: [String]) -> [String:Double] {
+    var result = [String : Double]()
+    for i in 1..<units.count {
+        let subunit: [ String ] = [units[0] , units[i]]
+        result.updateValue( unitConverterVolumeUtil(digit,  subunit), forKey: units[i])
+    }
     return result
 }
 
@@ -333,6 +324,7 @@ func start()-> Void{
             if inputString.count > 0 {  ///
                 let digitAndUnitsTuple = parseDigitToUnit(input: inputString)
                 print ("digitAndUnitsTuple : \(digitAndUnitsTuple)")
+                unitConverter(digit: digitAndUnitsTuple.0, units: digitAndUnitsTuple.1)
             }else{
                 print("값을 입력하세요")
             }
