@@ -57,3 +57,5 @@ remoteController.turn(on: true)         // message를 전달 ; 객체간의 소�
 //사람과 tv간 소통(메시지 전달) - 주문
 var owner: Any = String()
 owner = television.order(something: "옷")
+
+

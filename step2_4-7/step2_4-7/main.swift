@@ -95,8 +95,8 @@ let gram : [String: Double] = [
 ]
 let kilogram: [String: Double] = [
     "g": 1000,
-    "oz": 0.035274,
-    "lb": 0.002204625,
+    "oz": 35.274,
+    "lb": 2.20462,
     defaultUnit: 1000       //gram
 ]
 let ounce: [String: Double] = [
@@ -204,7 +204,7 @@ func cmBypass (_ digit: Double, _ from : String, _ to : String, _ dict1: [String
     print("meter 변환 값 > : \(result)")
     return result
 }
-/// 질량 변환기 보조함수(1) from : from의 다른 Unit에 대한 가중치 딕셔너리 / to : from에 대한 가중치 값
+/// 질량 변환기 보조함수 from : from의 다른 Unit에 대한 가중치 딕셔너리 / to : from에 대한 가중치 값
 func unitConverterMassUtil(_ digit: Double, _ units: [String]) -> Double{
     var result: Double = -1
     if let from = unitDictionaryCoefficient[units[0]] {
@@ -220,7 +220,7 @@ func unitConverterMassUtil(_ digit: Double, _ units: [String]) -> Double{
     return result
 }
 
-/// 부피 변환기 보조함수(1)
+/// 부피 변환기 보조함수
 func unitConverterVolumeUtil(_ digit: Double, _ units: [String]) -> Double{
     var result: Double = -1
     if let from = unitDictionaryCoefficient[units[0]] {
@@ -236,7 +236,7 @@ func unitConverterVolumeUtil(_ digit: Double, _ units: [String]) -> Double{
     return result
 }
 
-/// 거리 변환기 Util함수(1) : from -> to 명확히 주어진 경우
+/// 거리 변환기 Util함수 : from -> to 명확히 주어진 경우
 func unitConverterDistUtil(_ digit: Double,  _ units: [String]) -> Double{
     var result: Double = -1
     if let from = unitDictionaryCoefficient[units[0]] {
@@ -273,7 +273,6 @@ func unitConvertDist (_ digit: Double, _ units: [String]) -> [String:Double]{
         let subunit: [ String ] = [units[0] , units[i]]
         result.updateValue( unitConverterDistUtil(digit,  subunit), forKey: units[i])
     }
-
     return result
 }
 /* 2-6 질량 변환기 */
@@ -336,3 +335,4 @@ func start()-> Void{
 
 // RUN
 start()
+
