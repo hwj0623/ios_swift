@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C57D2392227818720087B84E /* NANDGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D2391227818720087B84E /* NANDGate.swift */; };
+		C57D239422781C3A0087B84E /* NORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239322781C3A0087B84E /* NORGate.swift */; };
+		C57D239622781D840087B84E /* ANDGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239522781D840087B84E /* ANDGate.swift */; };
+		C57D239822781E040087B84E /* ORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239722781E040087B84E /* ORGate.swift */; };
+		C57D239A22781E630087B84E /* INVERTORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239922781E630087B84E /* INVERTORGate.swift */; };
+		C57D239C2278202F0087B84E /* BinaryAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239B2278202F0087B84E /* BinaryAdder.swift */; };
+		C5AD307A225ECD68003037BA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AD3079225ECD68003037BA /* main.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5AD3074225ECD68003037BA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C57D2391227818720087B84E /* NANDGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NANDGate.swift; sourceTree = "<group>"; };
+		C57D239322781C3A0087B84E /* NORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NORGate.swift; sourceTree = "<group>"; };
+		C57D239522781D840087B84E /* ANDGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANDGate.swift; sourceTree = "<group>"; };
+		C57D239722781E040087B84E /* ORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORGate.swift; sourceTree = "<group>"; };
+		C57D239922781E630087B84E /* INVERTORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INVERTORGate.swift; sourceTree = "<group>"; };
+		C57D239B2278202F0087B84E /* BinaryAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryAdder.swift; sourceTree = "<group>"; };
+		C5AD3076225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "STEP_1-1_NAND_GATE_SWIFT"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5AD3079225ECD68003037BA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5AD3073225ECD68003037BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C5AD306D225ECD68003037BA = {
+			isa = PBXGroup;
+			children = (
+				C5AD3078225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */,
+				C5AD3077225ECD68003037BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C5AD3077225ECD68003037BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5AD3076225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5AD3078225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */ = {
+			isa = PBXGroup;
+			children = (
+				C5AD3079225ECD68003037BA /* main.swift */,
+				C57D2391227818720087B84E /* NANDGate.swift */,
+				C57D239522781D840087B84E /* ANDGate.swift */,
+				C57D239B2278202F0087B84E /* BinaryAdder.swift */,
+				C57D239722781E040087B84E /* ORGate.swift */,
+				C57D239922781E630087B84E /* INVERTORGate.swift */,
+				C57D239322781C3A0087B84E /* NORGate.swift */,
+			);
+			path = "STEP_1-1_NAND_GATE_SWIFT";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C5AD3075225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5AD307D225ECD68003037BA /* Build configuration list for PBXNativeTarget "STEP_1-1_NAND_GATE_SWIFT" */;
+			buildPhases = (
+				C5AD3072225ECD68003037BA /* Sources */,
+				C5AD3073225ECD68003037BA /* Frameworks */,
+				C5AD3074225ECD68003037BA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "STEP_1-1_NAND_GATE_SWIFT";
+			productName = "STEP_1-1_NAND_GATE_SWIFT";
+			productReference = C5AD3076225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5AD306E225ECD68003037BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = hwj;
+				TargetAttributes = {
+					C5AD3075225ECD68003037BA = {
+						CreatedOnToolsVersion = 10.2;
+					};
+				};
+			};
+			buildConfigurationList = C5AD3071225ECD68003037BA /* Build configuration list for PBXProject "STEP_1-1_NAND_GATE_SWIFT" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C5AD306D225ECD68003037BA;
+			productRefGroup = C5AD3077225ECD68003037BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5AD3075225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C5AD3072225ECD68003037BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C57D239622781D840087B84E /* ANDGate.swift in Sources */,
+				C57D239822781E040087B84E /* ORGate.swift in Sources */,
+				C57D239C2278202F0087B84E /* BinaryAdder.swift in Sources */,
+				C57D2392227818720087B84E /* NANDGate.swift in Sources */,
+				C57D239422781C3A0087B84E /* NORGate.swift in Sources */,
+				C5AD307A225ECD68003037BA /* main.swift in Sources */,
+				C57D239A22781E630087B84E /* INVERTORGate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C5AD307B225ECD68003037BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C5AD307C225ECD68003037BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		C5AD307E225ECD68003037BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C5AD307F225ECD68003037BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C5AD3071225ECD68003037BA /* Build configuration list for PBXProject "STEP_1-1_NAND_GATE_SWIFT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5AD307B225ECD68003037BA /* Debug */,
+				C5AD307C225ECD68003037BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5AD307D225ECD68003037BA /* Build configuration list for PBXNativeTarget "STEP_1-1_NAND_GATE_SWIFT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5AD307E225ECD68003037BA /* Debug */,
+				C5AD307F225ECD68003037BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C5AD306E225ECD68003037BA /* Project object */;
+}
