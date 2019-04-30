@@ -23,5 +23,17 @@ let main = {
     print (NORGate.nor(paramA: true, paramB: false))
     print (NORGate.nor(paramA: false, paramB: true))
 
+    
+    var byteA = true
+    var byteB = true
+    print("half Adder (1, 1) -> [ 1, 0 ] : \(BinaryAdder.halfAdder(byteA, byteB)))")
+    print(BinaryAdder.fullAdder(byteA, byteB))
+    
+    byteB = false
+    print("half Adder (1, 0) -> [ 0, 1 ] : \(BinaryAdder.halfAdder(byteA, byteB)))")
+    print(BinaryAdder.fullAdder(byteA, byteB))
+
 }
+
+main()
 
