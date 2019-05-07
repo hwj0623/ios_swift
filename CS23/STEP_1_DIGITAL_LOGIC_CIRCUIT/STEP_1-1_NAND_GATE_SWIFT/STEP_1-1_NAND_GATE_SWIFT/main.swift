@@ -20,6 +20,7 @@ enum TestType {
     case dec2bin
     case bin2dec
     case dec2hex
+    case hex2bin
 }
 struct main {
     
@@ -81,6 +82,15 @@ struct main {
         let result1 = Convertor.bin2hex(input1)
         print(result1)
     }
+    
+    static func hex2binExampleTest(){
+        let input = InputView.readHexNumber()
+        let booleanResult = Convertor.hex2bin(input)
+        let digitResult = CommonFormatter.convertBoolToDigit(booleanResult)
+        let result = CommonFormatter.compactResultValue(digitResult)
+        print(result)
+    }
+    
     static func test( testType: TestType ){
         switch testType {
         case .nand:
@@ -97,6 +107,8 @@ struct main {
             main.bin2decExampleTest()
         case .dec2hex:
             main.dec2hexExampleTest()
+        case .hex2bin:
+            main.hex2binExampleTest()
         }
     }
 }
@@ -104,5 +116,7 @@ struct main {
 //main.test(testType: TestType.fullAdder)
 //main.test(testType: TestType.dec2bin)
 //main.test(testType: TestType.bin2dec)
+//main.test(testType: TestType.dec2hex)
 
-main.test(testType: TestType.dec2hex)
+main.test(testType: TestType.hex2bin)
+

@@ -34,15 +34,21 @@ struct InputView {
     
     static func transformStringBinaryToBool (_ input : String) -> [Bool]{
         let pattern = "[0-1]"
-        let result = input.seperateDigitByDigit(for: pattern, in: input)
+        let result = input.seperateByPattern(for: pattern, in: input)
         
         let booleanResult = result.map { ($0 == "0") ? false : true}
         return booleanResult
     }
+    
+    static func readHexNumber() -> String {
+        let input = readNumber("16진법 문자열 입력 : ex: 0x0AF == 175 ")
+        var result = String(input.suffix(input.count-2))
+        return result
+    }
 }
 
 extension String {
-    func seperateDigitByDigit(for regex: String, in inputString: String) -> [String] {
+    func seperateByPattern(for regex: String, in inputString: String) -> [String] {
         do {
             if let regex = try? NSRegularExpression(pattern: regex, options: .caseInsensitive){
                 let test = regex.matches(in: inputString, options: [], range: NSRange(location:0, length: inputString.count))

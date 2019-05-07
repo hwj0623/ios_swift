@@ -67,6 +67,36 @@ struct Convertor{
         return result
     }
     
+    static func hex2bin ( _ hex : String ) -> [Bool] {
+        var multiplyer = 1
+        var decimal = 0
+        for element in hex.reversed() {
+            let hexInteger = convertHexCharacterToInteger(String(element))
+            decimal += hexInteger*multiplyer
+            multiplyer *= 16
+        }
+        let result = dec2bin(decimal)
+        return result
+    }
+    
+    static func convertHexCharacterToInteger(_ hexCharacter : String) -> Int{
+        switch hexCharacter {
+        case "A" :
+            return 10
+        case "B":
+            return 11
+        case "C":
+            return 12
+        case "D":
+            return 13
+        case "E":
+            return 14
+        case "F":
+            return 15
+        default:
+            return Int(hexCharacter) ?? 0
+        }
+    }
     static func appendHexCharacter(_ divider : Int) -> String{
         var hex = ""
         switch divider {
