@@ -46,4 +46,45 @@ struct Convertor{
         })
         return result
     }
+    
+    static func bin2hex(_ binary: [Bool]) -> String{
+        let decimalValue = bin2dec(binary)
+        let hexValue = dec2hex(decimalValue)
+        return hexValue
+    }
+    
+    static func dec2hex( _ decimal : Int) -> String {
+        var decimalValue = decimal
+        var divisor = 256
+        var result = "0x"
+        while divisor >= 1 && decimalValue >= 0 {
+            let div = decimalValue/divisor
+            decimalValue -= div*divisor
+            let hexDigit = appendHexCharacter(div)
+            result.append(hexDigit)
+            divisor /= 16
+        }
+        return result
+    }
+    
+    static func appendHexCharacter(_ divider : Int) -> String{
+        var hex = ""
+        switch divider {
+        case 10 :
+            hex = "A"
+        case 11 :
+            hex = "B"
+        case 12 :
+            hex = "C"
+        case 13 :
+            hex = "D"
+        case 14 :
+            hex = "E"
+        case 15:
+            hex = "F"
+        default:
+            hex = String(divider)
+        }
+        return hex
+    }
 }
