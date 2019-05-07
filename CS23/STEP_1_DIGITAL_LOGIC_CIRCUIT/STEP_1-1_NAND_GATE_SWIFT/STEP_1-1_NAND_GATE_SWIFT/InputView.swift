@@ -25,4 +25,31 @@ struct InputView {
         let input = readNumber("정수 입력 > ")
         return convertDecimalToBinaryNumber(input)
     }
+    
+    static func readBinaryNumber () -> [Bool] {
+        let input = readNumber("이진수 문자열로 입력 : ex 14 : [0, 1, 1, 1] ")
+        let result = transformStringBinaryToBool(input)
+        return result
+    }
+    
+    static func transformStringBinaryToBool (_ input : String) -> [Bool]{
+        let pattern = "[0-1]"
+        let result = input.seperateDigitByDigit(for: pattern, in: input)
+        
+        let booleanResult = result.map { ($0 == "0") ? false : true}
+        return booleanResult
+    }
+}
+
+extension String {
+    func seperateDigitByDigit(for regex: String, in inputString: String) -> [String] {
+        do {
+            if let regex = try? NSRegularExpression(pattern: regex, options: .caseInsensitive){
+                let test = regex.matches(in: inputString, options: [], range: NSRange(location:0, length: inputString.count))
+                let result : [String] = test.map{ String(inputString[Range($0.range, in: inputString)!])}
+                return result
+            }
+        }
+        return []
+    }
 }

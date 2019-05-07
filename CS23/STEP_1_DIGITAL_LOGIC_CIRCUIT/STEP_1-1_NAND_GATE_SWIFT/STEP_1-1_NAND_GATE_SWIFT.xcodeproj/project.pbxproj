@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C531F52A227C14FC002AF02F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531F529227C14FC002AF02F /* InputView.swift */; };
+		C531F54322814B23002AF02F /* Convertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531F54222814B23002AF02F /* Convertor.swift */; };
+		C531F54522814EC2002AF02F /* CommonFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531F54422814EC2002AF02F /* CommonFormatter.swift */; };
 		C57D2392227818720087B84E /* NANDGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D2391227818720087B84E /* NANDGate.swift */; };
 		C57D239422781C3A0087B84E /* NORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239322781C3A0087B84E /* NORGate.swift */; };
 		C57D239622781D840087B84E /* ANDGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239522781D840087B84E /* ANDGate.swift */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		C531F529227C14FC002AF02F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		C531F54222814B23002AF02F /* Convertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convertor.swift; sourceTree = "<group>"; };
+		C531F54422814EC2002AF02F /* CommonFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFormatter.swift; sourceTree = "<group>"; };
 		C57D2391227818720087B84E /* NANDGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NANDGate.swift; sourceTree = "<group>"; };
 		C57D239322781C3A0087B84E /* NORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NORGate.swift; sourceTree = "<group>"; };
 		C57D239522781D840087B84E /* ANDGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANDGate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				C57D239522781D840087B84E /* ANDGate.swift */,
 				C57D239B2278202F0087B84E /* BinaryAdder.swift */,
 				C57D239D227836C80087B84E /* EightBitAdder.swift */,
+				C531F54422814EC2002AF02F /* CommonFormatter.swift */,
+				C531F54222814B23002AF02F /* Convertor.swift */,
 				C57D239722781E040087B84E /* ORGate.swift */,
 				C57D239922781E630087B84E /* INVERTORGate.swift */,
 				C57D239322781C3A0087B84E /* NORGate.swift */,
@@ -147,7 +153,9 @@
 				C57D239822781E040087B84E /* ORGate.swift in Sources */,
 				C57D239C2278202F0087B84E /* BinaryAdder.swift in Sources */,
 				C57D2392227818720087B84E /* NANDGate.swift in Sources */,
+				C531F54322814B23002AF02F /* Convertor.swift in Sources */,
 				C57D239422781C3A0087B84E /* NORGate.swift in Sources */,
+				C531F54522814EC2002AF02F /* CommonFormatter.swift in Sources */,
 				C5AD307A225ECD68003037BA /* main.swift in Sources */,
 				C531F52A227C14FC002AF02F /* InputView.swift in Sources */,
 				C57D239E227836C80087B84E /* EightBitAdder.swift in Sources */,

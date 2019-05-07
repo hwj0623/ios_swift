@@ -17,7 +17,8 @@ enum TestType {
     case nor
     case halfAdder
     case fullAdder
-    
+    case dec2bin
+    case bin2dec
 }
 struct main {
     
@@ -49,9 +50,30 @@ struct main {
         let lhs = EightBitAdder.convertBinaryNumberToBooleanArray(binaryInteger: eightBitA)
         let rhs = EightBitAdder.convertBinaryNumberToBooleanArray(binaryInteger: eightBitB)
         let result = EightBitAdder.sum(byteA: lhs, byteB: rhs)
-        print (result)
+        let numberBinaryResult = CommonFormatter.convertBoolToDigit(result)
+        let compactResult = CommonFormatter.compactResultValue(numberBinaryResult)
+        print (compactResult)
     }
     
+    static func dec2binExampleTest() {
+        let decimal1 = Convertor.dec2bin(10)
+        let digitResult1 = CommonFormatter.convertBoolToDigit(decimal1)
+        let result1 = CommonFormatter.compactResultValue(digitResult1)
+        
+        let decimal2 = Convertor.dec2bin(173)
+        let digitResult2 = CommonFormatter.convertBoolToDigit(decimal2)
+        let result2 = CommonFormatter.compactResultValue(digitResult2)
+        print("10 : \(result1),\n173 : \(result2)")
+    }
+    
+    static func bin2decExampleTest() {
+        let input1 = InputView.readBinaryNumber()
+        let input2 = InputView.readBinaryNumber()
+        let result1 = Convertor.bin2dec(input1)
+        let result2 = Convertor.bin2dec(input2)
+
+        print(" [0, 1, 1, 1] : \(result1),\n [1,1,1,1,0,1,0,1] : \(result2)")
+    }
     static func test( testType: TestType ){
         switch testType {
         case .nand:
@@ -62,7 +84,14 @@ struct main {
             main.halfAdderExampleTest()
         case.fullAdder:
             main.fullAdderExampleTest()
+        case .dec2bin:
+            main.dec2binExampleTest()
+        case .bin2dec:
+            main.bin2decExampleTest()
         }
     }
 }
-main.test(testType: TestType.fullAdder)
+
+//main.test(testType: TestType.fullAdder)
+//main.test(testType: TestType.dec2bin)
+main.test(testType: TestType.bin2dec)

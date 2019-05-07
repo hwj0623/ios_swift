@@ -19,7 +19,7 @@ struct EightBitAdder {
         return adderResult.map{ (value) in return value == true ? 1 : 0 }
     }
     
-    static func sum (byteA: [Bool], byteB: [Bool]) -> [Int] {
+    static func sum (byteA: [Bool], byteB: [Bool]) -> [Bool] {
         var carry : Bool = false
         var sumResult = [Bool]()
         for index in 0..<byteA.count {
@@ -30,9 +30,7 @@ struct EightBitAdder {
         if carry {
             sumResult.append(carry)
         }
-        let numberBinaryResult = sumResult.map { (value) in return value == true ? 1 : 0}
-        let compactResult = compactResultValue(numberBinaryResult)
-        return compactResult
+        return sumResult
     }
     
     /// 0b01011011 == 91 => [ 1, 1, 0, 1, 1, 0, 1, 0 ]
@@ -49,21 +47,7 @@ struct EightBitAdder {
             }
             unit /= 2
         }
-        let reversedResult = result.reversed().map {(value) in return value == 1 ? true: false}
+        let reversedResult = CommonFormatter.convertDigitToBool(result.reversed()) 
         return reversedResult
-    }
-    
-    static func compactResultValue(_ result: [Int]) -> [Int] {
-        var isFirstBinaryDigit = false
-        var cuttingIndex = 0
-        for (index, element) in result.reversed().enumerated(){
-            isFirstBinaryDigit = element == 1 ? true : false
-            if isFirstBinaryDigit {
-                cuttingIndex = index
-                break
-            }
-        }
-        let compactResult = Array(result.reversed()[cuttingIndex...result.count-1].reversed())
-        return compactResult
     }
 }
