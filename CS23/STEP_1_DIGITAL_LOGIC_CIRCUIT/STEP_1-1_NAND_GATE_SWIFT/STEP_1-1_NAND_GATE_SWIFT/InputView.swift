@@ -17,11 +17,11 @@ struct InputView {
         return input
     }
     
-    static func convertDecimalToBinaryNumber(_ input: String) -> UInt8{
-        return UInt8(input) ?? 0b0
+    static func convertDecimalToBinaryNumber(_ input: String) -> UInt64{
+        return UInt64(input) ?? 0b0
     }
     
-    static func readDecimalNumber () -> UInt8 {
+    static func readDecimalNumber () -> UInt64 {
         let input = readNumber("정수 입력 > ")
         return convertDecimalToBinaryNumber(input)
     }

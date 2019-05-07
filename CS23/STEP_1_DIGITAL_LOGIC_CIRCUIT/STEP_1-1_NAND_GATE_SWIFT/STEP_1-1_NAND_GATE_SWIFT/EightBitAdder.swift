@@ -9,12 +9,12 @@
  자리올림(carry) + 전체 합(sum)을 순서대로 배열로 담아서 리턴하는 함수를 구현한다.
  입력으로 들어오는 byteA, byteB 배열의 길이는 같다고 가정한다.
  입력으로 들어오는 byteA 비트 순서는 낮은 자리(LSB)가 배열의 앞쪽에 오도록 표현한다. 배열의 순서대로 보면 이진수가 뒤집혀 있는 것처럼 보인다고 가정한다.
-*/
+ */
 import Foundation
 
 struct EightBitAdder {
     var adderResult: [Bool]
-
+    
     var eightBitAdderResult: [Int]{
         return adderResult.map{ (value) in return value == true ? 1 : 0 }
     }
@@ -30,14 +30,16 @@ struct EightBitAdder {
         if carry {
             sumResult.append(carry)
         }
-        return sumResult.map { (value) in return value == true ? 1 : 0}
+        let numberBinaryResult = sumResult.map { (value) in return value == true ? 1 : 0}
+        let compactResult = compactResultValue(numberBinaryResult)
+        return compactResult
     }
     
     /// 0b01011011 == 91 => [ 1, 1, 0, 1, 1, 0, 1, 0 ]
-    static func convertBinaryNumberToBooleanArray (binaryInteger: UInt8) -> [Bool]{
+    static func convertBinaryNumberToBooleanArray (binaryInteger: UInt64) -> [Bool]{
         var number = binaryInteger
         var result : [Int] = [Int]()
-        var unit = UInt8(128)
+        var unit = UInt64(4_294_967_296)
         while number >= 0 && unit >= 1 {
             if number < unit {
                 result.append(0)
@@ -49,5 +51,19 @@ struct EightBitAdder {
         }
         let reversedResult = result.reversed().map {(value) in return value == 1 ? true: false}
         return reversedResult
+    }
+    
+    static func compactResultValue(_ result: [Int]) -> [Int] {
+        var isFirstBinaryDigit = false
+        var cuttingIndex = 0
+        for (index, element) in result.reversed().enumerated(){
+            isFirstBinaryDigit = element == 1 ? true : false
+            if isFirstBinaryDigit {
+                cuttingIndex = index
+                break
+            }
+        }
+        let compactResult = Array(result.reversed()[cuttingIndex...result.count-1].reversed())
+        return compactResult
     }
 }
