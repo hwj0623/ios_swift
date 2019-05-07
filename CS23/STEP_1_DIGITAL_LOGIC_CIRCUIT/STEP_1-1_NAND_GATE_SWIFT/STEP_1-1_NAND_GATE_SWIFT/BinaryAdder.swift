@@ -8,6 +8,7 @@
 
 import Foundation
 
+typealias fullAdderResultPair = (sum: Bool, carry: Bool)
 struct BinaryAdder {
     /// 두 비트의 [합]은 NAND의 결과와 NOR의 결과가 같으면 0, 다르면 1이 되도록 한다.
     static private func sum (_ bitA: Bool, _ bitB: Bool) -> Bool {
@@ -29,33 +30,30 @@ struct BinaryAdder {
         return answer
     }
     
-    static func fullAdder (_ byteA: Bool, _ byteB: Bool) -> [Int]{
-        let lhs = carry(byteA, byteB)
-        let (rhs, firstHalfAdderCarryBit) = firstHalfAdderOfFullAdder(byteA, byteB)
-        let (secondHalfAdderCarryBit, sumBitOfFullAdder) = secondHalfAdderOfFullAdder(lhs, rhs)
-        let fullAdderCarryBit = ORGate.or(paramA: firstHalfAdderCarryBit, paramB: secondHalfAdderCarryBit)
-        
-        var answer = [Int]()
-        answer.append(sumBitOfFullAdder ? 1 : 0)
-        answer.append(fullAdderCarryBit ? 1 : 0)
+    /// [합, 자리올림]
+    static func fullAdder (byteA: Bool, byteB: Bool, carryBit: Bool) -> fullAdderResultPair{
+        let (sumOfFirstHalfAdder, carryBitOfFirstHalfAdder) = firstHalfAdderOfFullAdder(byteA, byteB)
+        let (carryBitOfSecondHalfAdder, sumBitOfFullAdder) = secondHalfAdderOfFullAdder(carryBit, sumOfFirstHalfAdder)
+        let fullAdderCarryBit = ORGate.or(paramA: carryBitOfFirstHalfAdder, paramB: carryBitOfSecondHalfAdder)
+        let answer = fullAdderResultPair(sum: sumBitOfFullAdder, carry: fullAdderCarryBit)
         return answer
     }
     
-    private static func firstHalfAdderOfFullAdder(_ byteA: Bool, _ byteB: Bool) -> (rhs: Bool, firstHalfAdderCarryBit: Bool){
+    private static func firstHalfAdderOfFullAdder(_ byteA: Bool, _ byteB: Bool) -> (rhs: Bool, carryBitOfFirstHalfAdder: Bool){
         
         var firstHalfAdder = halfAdder(byteA, byteB)
-        let firstHalfAdderCarryBit = firstHalfAdder[0]
+        let carryBitOfFirstHalfAdder = firstHalfAdder[0]
         let rhs = firstHalfAdder[1]                          //sum of half adder
         
-        return (rhs, firstHalfAdderCarryBit)
+        return (rhs, carryBitOfFirstHalfAdder)
     }
     
-    private static func secondHalfAdderOfFullAdder(_ lhs: Bool, _ rhs: Bool) -> ( secondHalfAdderCarryBit: Bool, sumBitOfFullAdder: Bool){
+    private static func secondHalfAdderOfFullAdder(_ lhs: Bool, _ rhs: Bool) -> ( carryBitOfSecondHalfAdder: Bool, sumBitOfFullAdder: Bool){
         
         let secondHalfAdder = halfAdder(lhs, rhs)
-        let secondHalfAdderCarryBit = secondHalfAdder[0]
+        let carryBitOfSecondHalfAdder = secondHalfAdder[0]
         let sumBitOfFullAdder = secondHalfAdder[1]
         
-        return (secondHalfAdderCarryBit, sumBitOfFullAdder)
+        return (carryBitOfSecondHalfAdder, sumBitOfFullAdder)
     }
 }

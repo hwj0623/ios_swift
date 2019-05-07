@@ -7,19 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C531F52A227C14FC002AF02F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531F529227C14FC002AF02F /* InputView.swift */; };
-		C57D2392227818720087B84E /* NANDGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D2391227818720087B84E /* NANDGate.swift */; };
-		C57D239422781C3A0087B84E /* NORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239322781C3A0087B84E /* NORGate.swift */; };
-		C57D239622781D840087B84E /* ANDGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239522781D840087B84E /* ANDGate.swift */; };
-		C57D239822781E040087B84E /* ORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239722781E040087B84E /* ORGate.swift */; };
-		C57D239A22781E630087B84E /* INVERTORGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239922781E630087B84E /* INVERTORGate.swift */; };
-		C57D239C2278202F0087B84E /* BinaryAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239B2278202F0087B84E /* BinaryAdder.swift */; };
-		C57D239E227836C80087B84E /* EightBitAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D239D227836C80087B84E /* EightBitAdder.swift */; };
-		C5AD307A225ECD68003037BA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AD3079225ECD68003037BA /* main.swift */; };
+		C531F538227C2110002AF02F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531F537227C2110002AF02F /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C5AD3074225ECD68003037BA /* CopyFiles */ = {
+		C531F532227C2110002AF02F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -31,20 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C531F529227C14FC002AF02F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		C57D2391227818720087B84E /* NANDGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NANDGate.swift; sourceTree = "<group>"; };
-		C57D239322781C3A0087B84E /* NORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NORGate.swift; sourceTree = "<group>"; };
-		C57D239522781D840087B84E /* ANDGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANDGate.swift; sourceTree = "<group>"; };
-		C57D239722781E040087B84E /* ORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORGate.swift; sourceTree = "<group>"; };
-		C57D239922781E630087B84E /* INVERTORGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INVERTORGate.swift; sourceTree = "<group>"; };
-		C57D239B2278202F0087B84E /* BinaryAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryAdder.swift; sourceTree = "<group>"; };
-		C57D239D227836C80087B84E /* EightBitAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightBitAdder.swift; sourceTree = "<group>"; };
-		C5AD3076225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "STEP_1-1_NAND_GATE_SWIFT"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5AD3079225ECD68003037BA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C531F534227C2110002AF02F /* LadderGameReview */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LadderGameReview; sourceTree = BUILT_PRODUCTS_DIR; };
+		C531F537227C2110002AF02F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C5AD3073225ECD68003037BA /* Frameworks */ = {
+		C531F531227C2110002AF02F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -54,111 +38,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C5AD306D225ECD68003037BA = {
+		C531F52B227C2110002AF02F = {
 			isa = PBXGroup;
 			children = (
-				C5AD3078225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */,
-				C5AD3077225ECD68003037BA /* Products */,
+				C531F536227C2110002AF02F /* LadderGameReview */,
+				C531F535227C2110002AF02F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C5AD3077225ECD68003037BA /* Products */ = {
+		C531F535227C2110002AF02F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5AD3076225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */,
+				C531F534227C2110002AF02F /* LadderGameReview */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C5AD3078225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */ = {
+		C531F536227C2110002AF02F /* LadderGameReview */ = {
 			isa = PBXGroup;
 			children = (
-				C5AD3079225ECD68003037BA /* main.swift */,
-				C531F529227C14FC002AF02F /* InputView.swift */,
-				C57D2391227818720087B84E /* NANDGate.swift */,
-				C57D239522781D840087B84E /* ANDGate.swift */,
-				C57D239B2278202F0087B84E /* BinaryAdder.swift */,
-				C57D239D227836C80087B84E /* EightBitAdder.swift */,
-				C57D239722781E040087B84E /* ORGate.swift */,
-				C57D239922781E630087B84E /* INVERTORGate.swift */,
-				C57D239322781C3A0087B84E /* NORGate.swift */,
+				C531F537227C2110002AF02F /* main.swift */,
 			);
-			path = "STEP_1-1_NAND_GATE_SWIFT";
+			path = LadderGameReview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C5AD3075225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */ = {
+		C531F533227C2110002AF02F /* LadderGameReview */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C5AD307D225ECD68003037BA /* Build configuration list for PBXNativeTarget "STEP_1-1_NAND_GATE_SWIFT" */;
+			buildConfigurationList = C531F53B227C2110002AF02F /* Build configuration list for PBXNativeTarget "LadderGameReview" */;
 			buildPhases = (
-				C5AD3072225ECD68003037BA /* Sources */,
-				C5AD3073225ECD68003037BA /* Frameworks */,
-				C5AD3074225ECD68003037BA /* CopyFiles */,
+				C531F530227C2110002AF02F /* Sources */,
+				C531F531227C2110002AF02F /* Frameworks */,
+				C531F532227C2110002AF02F /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "STEP_1-1_NAND_GATE_SWIFT";
-			productName = "STEP_1-1_NAND_GATE_SWIFT";
-			productReference = C5AD3076225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */;
+			name = LadderGameReview;
+			productName = LadderGameReview;
+			productReference = C531F534227C2110002AF02F /* LadderGameReview */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C5AD306E225ECD68003037BA /* Project object */ = {
+		C531F52C227C2110002AF02F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = hwj;
 				TargetAttributes = {
-					C5AD3075225ECD68003037BA = {
-						CreatedOnToolsVersion = 10.2;
+					C531F533227C2110002AF02F = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = C5AD3071225ECD68003037BA /* Build configuration list for PBXProject "STEP_1-1_NAND_GATE_SWIFT" */;
+			buildConfigurationList = C531F52F227C2110002AF02F /* Build configuration list for PBXProject "LadderGameReview" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = C5AD306D225ECD68003037BA;
-			productRefGroup = C5AD3077225ECD68003037BA /* Products */;
+			mainGroup = C531F52B227C2110002AF02F;
+			productRefGroup = C531F535227C2110002AF02F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C5AD3075225ECD68003037BA /* STEP_1-1_NAND_GATE_SWIFT */,
+				C531F533227C2110002AF02F /* LadderGameReview */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C5AD3072225ECD68003037BA /* Sources */ = {
+		C531F530227C2110002AF02F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C57D239622781D840087B84E /* ANDGate.swift in Sources */,
-				C57D239822781E040087B84E /* ORGate.swift in Sources */,
-				C57D239C2278202F0087B84E /* BinaryAdder.swift in Sources */,
-				C57D2392227818720087B84E /* NANDGate.swift in Sources */,
-				C57D239422781C3A0087B84E /* NORGate.swift in Sources */,
-				C5AD307A225ECD68003037BA /* main.swift in Sources */,
-				C531F52A227C14FC002AF02F /* InputView.swift in Sources */,
-				C57D239E227836C80087B84E /* EightBitAdder.swift in Sources */,
-				C57D239A22781E630087B84E /* INVERTORGate.swift in Sources */,
+				C531F538227C2110002AF02F /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C5AD307B225ECD68003037BA /* Debug */ = {
+		C531F539227C2110002AF02F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -219,7 +187,7 @@
 			};
 			name = Debug;
 		};
-		C5AD307C225ECD68003037BA /* Release */ = {
+		C531F53A227C2110002AF02F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -273,7 +241,7 @@
 			};
 			name = Release;
 		};
-		C5AD307E225ECD68003037BA /* Debug */ = {
+		C531F53C227C2110002AF02F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -282,7 +250,7 @@
 			};
 			name = Debug;
 		};
-		C5AD307F225ECD68003037BA /* Release */ = {
+		C531F53D227C2110002AF02F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -294,25 +262,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C5AD3071225ECD68003037BA /* Build configuration list for PBXProject "STEP_1-1_NAND_GATE_SWIFT" */ = {
+		C531F52F227C2110002AF02F /* Build configuration list for PBXProject "LadderGameReview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5AD307B225ECD68003037BA /* Debug */,
-				C5AD307C225ECD68003037BA /* Release */,
+				C531F539227C2110002AF02F /* Debug */,
+				C531F53A227C2110002AF02F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C5AD307D225ECD68003037BA /* Build configuration list for PBXNativeTarget "STEP_1-1_NAND_GATE_SWIFT" */ = {
+		C531F53B227C2110002AF02F /* Build configuration list for PBXNativeTarget "LadderGameReview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5AD307E225ECD68003037BA /* Debug */,
-				C5AD307F225ECD68003037BA /* Release */,
+				C531F53C227C2110002AF02F /* Debug */,
+				C531F53D227C2110002AF02F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C5AD306E225ECD68003037BA /* Project object */;
+	rootObject = C531F52C227C2110002AF02F /* Project object */;
 }
