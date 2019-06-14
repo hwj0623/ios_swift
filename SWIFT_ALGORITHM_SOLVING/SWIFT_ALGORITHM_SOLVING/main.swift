@@ -8,8 +8,19 @@
 
 import Foundation
 
+class Main {
+    static func leetCode_230(){
+        var leetcode_230 = Solution_LeetCode_230()
+        leetcode_230.start()
+    }
+    static func leetCode_700(){
+        var leetcode_700 = Solution_LeetCode_700()
+        leetcode_700.start()
+    }
+    init(){}
+}
 
-let main = {
+Main.leetCode_230()
 //    var sol_42746 = Solution_42746()
 //
 //    for i in 0..<5{
@@ -18,9 +29,8 @@ let main = {
 //        print(result_42746)
 //    }
    
-    var tt = Solution_LeetCode_700()
-    tt.start()
     
-}
+    
 
-main()
+
+
