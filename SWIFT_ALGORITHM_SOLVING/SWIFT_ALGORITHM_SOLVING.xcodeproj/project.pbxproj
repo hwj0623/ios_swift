@@ -10,6 +10,7 @@
 		C52E70DC22978221008AEC89 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70DB22978221008AEC89 /* main.swift */; };
 		C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70E82297840A008AEC89 /* Solution_42746.swift */; };
 		C52E70EB22978427008AEC89 /* Solution_42748.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70EA22978427008AEC89 /* Solution_42748.swift */; };
+		C598F9D622B2895800DE223D /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9D522B2895800DE223D /* Solution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		C52E70DB22978221008AEC89 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C52E70E82297840A008AEC89 /* Solution_42746.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_42746.swift; sourceTree = "<group>"; };
 		C52E70EA22978427008AEC89 /* Solution_42748.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_42748.swift; sourceTree = "<group>"; };
+		C598F9D522B2895800DE223D /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 		C52E70CF22978221008AEC89 = {
 			isa = PBXGroup;
 			children = (
+				C598F9D322B2891800DE223D /* LeetCode */,
 				C52E70E522978264008AEC89 /* 가장큰수_42746 */,
 				C52E70E222978232008AEC89 /* K번째수_42748 */,
 				C52E70DA22978221008AEC89 /* SWIFT_ALGORITHM_SOLVING */,
@@ -84,6 +87,22 @@
 			);
 			name = "가장큰수_42746";
 			path = "가장큰수_42746";
+			sourceTree = "<group>";
+		};
+		C598F9D322B2891800DE223D /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+				C598F9D422B2892400DE223D /* 700_Search in a Binary Search Tree */,
+			);
+			path = LeetCode;
+			sourceTree = "<group>";
+		};
+		C598F9D422B2892400DE223D /* 700_Search in a Binary Search Tree */ = {
+			isa = PBXGroup;
+			children = (
+				C598F9D522B2895800DE223D /* Solution.swift */,
+			);
+			path = "700_Search in a Binary Search Tree";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +164,7 @@
 			files = (
 				C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */,
 				C52E70DC22978221008AEC89 /* main.swift in Sources */,
+				C598F9D622B2895800DE223D /* Solution.swift in Sources */,
 				C52E70EB22978427008AEC89 /* Solution_42748.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
