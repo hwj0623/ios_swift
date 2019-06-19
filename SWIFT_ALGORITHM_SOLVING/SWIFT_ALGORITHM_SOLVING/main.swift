@@ -17,10 +17,15 @@ class Main {
         var leetcode_700 = Solution_LeetCode_700()
         leetcode_700.start()
     }
+    
+    static func leetCode_581(){
+        var leetcode_581 = Solution_LeetCode__581()
+        leetcode_581.start()
+    }
     init(){}
 }
 
-Main.leetCode_230()
+Main.leetCode_581()
 //    var sol_42746 = Solution_42746()
 //
 //    for i in 0..<5{
@@ -28,9 +33,9 @@ Main.leetCode_230()
 //        let result_42746 = sol_42746.solution(input_42746)
 //        print(result_42746)
 //    }
-   
-    
-    
+
+
+
 
 
 
