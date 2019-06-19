@@ -19,7 +19,7 @@ class Main {
     }
     
     static func leetCode_581(){
-        var leetcode_581 = Solution_LeetCode__581()
+        var leetcode_581 = Solution_LeetCode_581()
         leetcode_581.start()
     }
     init(){}

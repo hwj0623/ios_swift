@@ -10,8 +10,8 @@
 		C52E70DC22978221008AEC89 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70DB22978221008AEC89 /* main.swift */; };
 		C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70E82297840A008AEC89 /* Solution_42746.swift */; };
 		C52E70EB22978427008AEC89 /* Solution_42748.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70EA22978427008AEC89 /* Solution_42748.swift */; };
-		C5402E5D22BA64E900F3B33F /* Solution_581.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E5C22BA64E900F3B33F /* Solution_581.swift */; };
-		C598F9D622B2895800DE223D /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9D522B2895800DE223D /* Solution.swift */; };
+		C5402E6022BA7B7200F3B33F /* Solution_581.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E5F22BA7B7200F3B33F /* Solution_581.swift */; };
+		C5402E6222BA7C0D00F3B33F /* Solution_700.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E6122BA7C0C00F3B33F /* Solution_700.swift */; };
 		C598F9D922B37C3700DE223D /* Solution_230.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9D822B37C3700DE223D /* Solution_230.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +32,8 @@
 		C52E70DB22978221008AEC89 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C52E70E82297840A008AEC89 /* Solution_42746.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_42746.swift; sourceTree = "<group>"; };
 		C52E70EA22978427008AEC89 /* Solution_42748.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_42748.swift; sourceTree = "<group>"; };
-		C5402E5C22BA64E900F3B33F /* Solution_581.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_581.swift; sourceTree = "<group>"; };
-		C598F9D522B2895800DE223D /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
+		C5402E5F22BA7B7200F3B33F /* Solution_581.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_581.swift; sourceTree = "<group>"; };
+		C5402E6122BA7C0C00F3B33F /* Solution_700.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_700.swift; sourceTree = "<group>"; };
 		C598F9D822B37C3700DE223D /* Solution_230.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_230.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,18 +93,18 @@
 			path = "가장큰수_42746";
 			sourceTree = "<group>";
 		};
-		C5402E5B22BA64CE00F3B33F /* 581__Shortest Unsorted Continuous Subarray */ = {
+		C5402E5E22BA7B7200F3B33F /* 581_Shortest Unsorted Continuous Subarray copy */ = {
 			isa = PBXGroup;
 			children = (
-				C5402E5C22BA64E900F3B33F /* Solution_581.swift */,
+				C5402E5F22BA7B7200F3B33F /* Solution_581.swift */,
 			);
-			path = "581__Shortest Unsorted Continuous Subarray";
+			path = "581_Shortest Unsorted Continuous Subarray copy";
 			sourceTree = "<group>";
 		};
 		C598F9D322B2891800DE223D /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
-				C5402E5B22BA64CE00F3B33F /* 581__Shortest Unsorted Continuous Subarray */,
+				C5402E5E22BA7B7200F3B33F /* 581_Shortest Unsorted Continuous Subarray copy */,
 				C598F9D722B37C2500DE223D /* 230_Kth Smallest Element in a BST  */,
 				C598F9D422B2892400DE223D /* 700_Search in a Binary Search Tree */,
 			);
@@ -114,7 +114,7 @@
 		C598F9D422B2892400DE223D /* 700_Search in a Binary Search Tree */ = {
 			isa = PBXGroup;
 			children = (
-				C598F9D522B2895800DE223D /* Solution.swift */,
+				C5402E6122BA7C0C00F3B33F /* Solution_700.swift */,
 			);
 			path = "700_Search in a Binary Search Tree";
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 			files = (
 				C598F9D922B37C3700DE223D /* Solution_230.swift in Sources */,
 				C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */,
+				C5402E6222BA7C0D00F3B33F /* Solution_700.swift in Sources */,
 				C52E70DC22978221008AEC89 /* main.swift in Sources */,
-				C5402E5D22BA64E900F3B33F /* Solution_581.swift in Sources */,
-				C598F9D622B2895800DE223D /* Solution.swift in Sources */,
+				C5402E6022BA7B7200F3B33F /* Solution_581.swift in Sources */,
 				C52E70EB22978427008AEC89 /* Solution_42748.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
