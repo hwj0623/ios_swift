@@ -9,7 +9,43 @@
 import Foundation
 
 class Solution_LeetCode_128 {
-    
+    func longestConsecutive_usingUnion_Find(_ nums: [Int]) -> Int{
+        if nums.isEmpty {
+            return 0
+        }
+        var numSet : Set<Int> = Set<Int>(nums)
+        var maxLength = 0
+        while !numSet.isEmpty {
+            guard var currentNumber = numSet.popFirst() else{
+                break
+            }
+            var length = 1
+            length += leftUnion(&numSet, curNum: currentNumber)
+            length += rightUnion(&numSet, curNum: currentNumber)
+            maxLength = maxLength < length ? length : maxLength
+        }
+        return maxLength
+    }
+    private func leftUnion(_ set: inout Set<Int>, curNum: Int) -> Int{
+        var leftSize = 0
+        var currentNumber = curNum
+        while set.contains(currentNumber - 1) {
+            set.remove(currentNumber-1)
+            leftSize += 1
+            currentNumber -= 1
+        }
+        return leftSize
+    }
+    private func rightUnion(_ set: inout Set<Int>, curNum: Int) -> Int{
+        var rightSize = 0
+        var currentNumber = curNum
+        while set.contains(currentNumber + 1) {
+            set.remove(currentNumber+1)
+            rightSize += 1
+            currentNumber += 1
+        }
+        return rightSize
+    }
     /// sorted에 O(nlogn)이 소요되는데, 왜 더 빠를까..
     func longestConsecutive_modified(_ nums: [Int]) -> Int {
         if nums.isEmpty {
@@ -58,7 +94,7 @@ class Solution_LeetCode_128 {
     func start(){
         let test = [100, 4, 200, 1, 3, 2]
         let test2: [Int] = []
-        let result = longestConsecutive_modified(test)
+        let result = longestConsecutive_usingUnion_Find(test)
         print(result)
     }
 }
