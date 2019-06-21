@@ -9,23 +9,27 @@
 import Foundation
 
 class Main {
-    static func leetCode_230(){
-        var leetcode_230 = Solution_LeetCode_230()
-        leetcode_230.start()
-    }
-    static func leetCode_700(){
-        var leetcode_700 = Solution_LeetCode_700()
-        leetcode_700.start()
-    }
+//    static func leetCode_230(){
+//        var leetcode_230 = Solution_LeetCode_230()
+//        leetcode_230.start()
+//    }
+//    static func leetCode_700(){
+//        var leetcode_700 = Solution_LeetCode_700()
+//        leetcode_700.start()
+//    }
     
     static func leetCode_581(){
         var leetcode_581 = Solution_LeetCode_581()
         leetcode_581.start()
     }
+    static func leetCode_128(){
+        var leetcode_128 = Solution_LeetCode_128()
+        leetcode_128.start()
+    }
     init(){}
 }
 
-Main.leetCode_581()
+Main.leetCode_128()
 //    var sol_42746 = Solution_42746()
 //
 //    for i in 0..<5{
