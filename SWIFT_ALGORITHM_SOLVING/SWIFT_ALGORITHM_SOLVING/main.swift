@@ -26,10 +26,15 @@ class Main {
         var leetcode_128 = Solution_LeetCode_128()
         leetcode_128.start()
     }
+    static func leetCode_852(){
+        var leetcode_852 = Solution_LeetCode_852()
+        leetcode_852.start()
+    }
     init(){}
 }
 
-Main.leetCode_128()
+//Main.leetCode_128()
+Main.leetCode_852()
 //    var sol_42746 = Solution_42746()
 //
 //    for i in 0..<5{

@@ -13,6 +13,7 @@
 		C5402E6022BA7B7200F3B33F /* Solution_581.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E5F22BA7B7200F3B33F /* Solution_581.swift */; };
 		C5402E6222BA7C0D00F3B33F /* Solution_700.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E6122BA7C0C00F3B33F /* Solution_700.swift */; };
 		C5402E6A22BCA12500F3B33F /* Solution_128.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E6922BCA12500F3B33F /* Solution_128.swift */; };
+		C556207022C6383900168874 /* Solution_852.swift in Sources */ = {isa = PBXBuildFile; fileRef = C556206F22C6383900168874 /* Solution_852.swift */; };
 		C598F9D922B37C3700DE223D /* Solution_230.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9D822B37C3700DE223D /* Solution_230.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		C5402E5F22BA7B7200F3B33F /* Solution_581.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_581.swift; sourceTree = "<group>"; };
 		C5402E6122BA7C0C00F3B33F /* Solution_700.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_700.swift; sourceTree = "<group>"; };
 		C5402E6922BCA12500F3B33F /* Solution_128.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_128.swift; sourceTree = "<group>"; };
+		C556206F22C6383900168874 /* Solution_852.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_852.swift; sourceTree = "<group>"; };
 		C598F9D822B37C3700DE223D /* Solution_230.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_230.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,9 +113,18 @@
 			path = "128_Longest Consecutive Sequence ";
 			sourceTree = "<group>";
 		};
+		C556206E22C6382400168874 /* 852_Peak Index in a Mountain Array */ = {
+			isa = PBXGroup;
+			children = (
+				C556206F22C6383900168874 /* Solution_852.swift */,
+			);
+			path = "852_Peak Index in a Mountain Array";
+			sourceTree = "<group>";
+		};
 		C598F9D322B2891800DE223D /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
+				C556206E22C6382400168874 /* 852_Peak Index in a Mountain Array */,
 				C5402E6822BCA10A00F3B33F /* 128_Longest Consecutive Sequence  */,
 				C5402E5E22BA7B7200F3B33F /* 581_Shortest Unsorted Continuous Subarray copy */,
 				C598F9D722B37C2500DE223D /* 230_Kth Smallest Element in a BST  */,
@@ -195,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C556207022C6383900168874 /* Solution_852.swift in Sources */,
 				C598F9D922B37C3700DE223D /* Solution_230.swift in Sources */,
 				C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */,
 				C5402E6222BA7C0D00F3B33F /* Solution_700.swift in Sources */,
