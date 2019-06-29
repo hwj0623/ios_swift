@@ -34,12 +34,17 @@ class Main {
         var leetcode_162 = Solution_LeetCode_162()
         leetcode_162.start()
     }
+    static func leetCode_189(){
+        var leetcode_189 = Solution_LeetCode_189()
+        leetcode_189.start()
+    }
     init(){}
 }
 
 //Main.leetCode_128()
 //Main.leetCode_852()
-Main.leetCode_162()
+//Main.leetCode_162()
+Main.leetCode_189()
 //    var sol_42746 = Solution_42746()
 //
 //    for i in 0..<5{
