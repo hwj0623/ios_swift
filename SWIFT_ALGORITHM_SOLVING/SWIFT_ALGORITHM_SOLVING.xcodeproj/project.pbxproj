@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C5250CB222C7A23A00FB2534 /* Solution_189.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5250CB122C7A23A00FB2534 /* Solution_189.swift */; };
+		C5250CB622C8FAA600FB2534 /* Solution_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5250CB522C8FAA600FB2534 /* Solution_14.swift */; };
 		C52E70DC22978221008AEC89 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70DB22978221008AEC89 /* main.swift */; };
 		C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70E82297840A008AEC89 /* Solution_42746.swift */; };
 		C52E70EB22978427008AEC89 /* Solution_42748.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52E70EA22978427008AEC89 /* Solution_42748.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		C5250CB122C7A23A00FB2534 /* Solution_189.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_189.swift; sourceTree = "<group>"; };
+		C5250CB522C8FAA600FB2534 /* Solution_14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_14.swift; sourceTree = "<group>"; };
 		C52E70D822978221008AEC89 /* SWIFT_ALGORITHM_SOLVING */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SWIFT_ALGORITHM_SOLVING; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52E70DB22978221008AEC89 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C52E70E82297840A008AEC89 /* Solution_42746.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_42746.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 				C5250CB122C7A23A00FB2534 /* Solution_189.swift */,
 			);
 			path = "189_Rotate Array";
+			sourceTree = "<group>";
+		};
+		C5250CB422C8FA8500FB2534 /* 14_Longest Common Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				C5250CB522C8FAA600FB2534 /* Solution_14.swift */,
+			);
+			path = "14_Longest Common Prefix";
 			sourceTree = "<group>";
 		};
 		C52E70CF22978221008AEC89 = {
@@ -144,6 +154,7 @@
 		C598F9D322B2891800DE223D /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
+				C5250CB422C8FA8500FB2534 /* 14_Longest Common Prefix */,
 				C5250CB022C7A20D00FB2534 /* 189_Rotate Array */,
 				C556207122C63B2A00168874 /* 162_Find Peak Element  */,
 				C556206E22C6382400168874 /* 852_Peak Index in a Mountain Array */,
@@ -230,6 +241,7 @@
 			files = (
 				C556207022C6383900168874 /* Solution_852.swift in Sources */,
 				C5250CB222C7A23A00FB2534 /* Solution_189.swift in Sources */,
+				C5250CB622C8FAA600FB2534 /* Solution_14.swift in Sources */,
 				C598F9D922B37C3700DE223D /* Solution_230.swift in Sources */,
 				C52E70E92297840A008AEC89 /* Solution_42746.swift in Sources */,
 				C5402E6222BA7C0D00F3B33F /* Solution_700.swift in Sources */,
