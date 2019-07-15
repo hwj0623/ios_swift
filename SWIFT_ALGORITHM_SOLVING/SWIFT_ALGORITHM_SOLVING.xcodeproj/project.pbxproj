@@ -17,6 +17,7 @@
 		C5402E6A22BCA12500F3B33F /* Solution_128.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5402E6922BCA12500F3B33F /* Solution_128.swift */; };
 		C556207022C6383900168874 /* Solution_852.swift in Sources */ = {isa = PBXBuildFile; fileRef = C556206F22C6383900168874 /* Solution_852.swift */; };
 		C556207322C63B4B00168874 /* Solution_162.swift in Sources */ = {isa = PBXBuildFile; fileRef = C556207222C63B4B00168874 /* Solution_162.swift */; };
+		C597B31122DCA6960027B579 /* Solution_112.swift in Sources */ = {isa = PBXBuildFile; fileRef = C597B31022DCA6960027B579 /* Solution_112.swift */; };
 		C598F9D922B37C3700DE223D /* Solution_230.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598F9D822B37C3700DE223D /* Solution_230.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		C5402E6922BCA12500F3B33F /* Solution_128.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_128.swift; sourceTree = "<group>"; };
 		C556206F22C6383900168874 /* Solution_852.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_852.swift; sourceTree = "<group>"; };
 		C556207222C63B4B00168874 /* Solution_162.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_162.swift; sourceTree = "<group>"; };
+		C597B31022DCA6960027B579 /* Solution_112.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_112.swift; sourceTree = "<group>"; };
 		C598F9D822B37C3700DE223D /* Solution_230.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_230.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,9 +153,18 @@
 			path = "162_Find Peak Element ";
 			sourceTree = "<group>";
 		};
+		C597B30F22DCA66D0027B579 /* 112_Path_Sum */ = {
+			isa = PBXGroup;
+			children = (
+				C597B31022DCA6960027B579 /* Solution_112.swift */,
+			);
+			path = 112_Path_Sum;
+			sourceTree = "<group>";
+		};
 		C598F9D322B2891800DE223D /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
+				C597B30F22DCA66D0027B579 /* 112_Path_Sum */,
 				C5250CB422C8FA8500FB2534 /* 14_Longest Common Prefix */,
 				C5250CB022C7A20D00FB2534 /* 189_Rotate Array */,
 				C556207122C63B2A00168874 /* 162_Find Peak Element  */,
@@ -248,6 +259,7 @@
 				C5402E6A22BCA12500F3B33F /* Solution_128.swift in Sources */,
 				C52E70DC22978221008AEC89 /* main.swift in Sources */,
 				C5402E6022BA7B7200F3B33F /* Solution_581.swift in Sources */,
+				C597B31122DCA6960027B579 /* Solution_112.swift in Sources */,
 				C52E70EB22978427008AEC89 /* Solution_42748.swift in Sources */,
 				C556207322C63B4B00168874 /* Solution_162.swift in Sources */,
 			);
