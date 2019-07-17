@@ -12,13 +12,15 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     let nameList = ["brook", "chopper", "franky", "luffy", "nami", "robin", "sanji", "zoro"]
     let bountyList = [3300000, 50, 44000000, 300000000, 16000000, 80000000, 77000000, 120000000 ]
     @IBOutlet weak var bountyTableView: UITableView!
+    
     /// 데이터 몇개를 보여줄 것인가?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.nameList.count
     }
 
-    /// 셀은 어떻게 표현할 것인가?
+    /// 셀은 어떻게 표현할 것인가? - customizing한 UITableViewCell인 ListCell을 사용한다.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /// 재사용가능한 셀을 사용한다.
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
             return UITableViewCell()
         }
@@ -32,10 +34,11 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
 
     /// 셀 클릭시 어떻게 할 것인지
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("======= \(indexPath.row) =======")
+        /// 세그웨이의 id를 지정하여 sender로 데이터를 넘긴다.
         performSegue(withIdentifier: "showDetail", sender: indexPath.row)
     }
     
+    /// segueway 실행시 목적지 vc에 전송할 데이터를 처리한다.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let vc = segue.destination as? DetailViewController
