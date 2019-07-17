@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5575EB122DF1C53003FD540 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EB022DF1C53003FD540 /* DetailViewController.swift */; };
 		C574D2CC22D969A900AF102E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574D2CB22D969A900AF102E /* AppDelegate.swift */; };
 		C574D2D122D969A900AF102E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C574D2CF22D969A900AF102E /* Main.storyboard */; };
 		C574D2D322D969AC00AF102E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C574D2D222D969AC00AF102E /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5575EB022DF1C53003FD540 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C574D2C822D969A900AF102E /* BountyListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BountyListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C574D2CB22D969A900AF102E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C574D2D022D969A900AF102E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				C574D2CB22D969A900AF102E /* AppDelegate.swift */,
 				C574D2DF22D96AC200AF102E /* BountyViewController.swift */,
 				C574D2CF22D969A900AF102E /* Main.storyboard */,
+				C5575EB022DF1C53003FD540 /* DetailViewController.swift */,
 				C574D2D222D969AC00AF102E /* Assets.xcassets */,
 				C574D2D422D969AC00AF102E /* LaunchScreen.storyboard */,
 				C574D2D722D969AC00AF102E /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5575EB122DF1C53003FD540 /* DetailViewController.swift in Sources */,
 				C574D2CC22D969A900AF102E /* AppDelegate.swift in Sources */,
 				C574D2E022D96AC200AF102E /* BountyViewController.swift in Sources */,
 			);

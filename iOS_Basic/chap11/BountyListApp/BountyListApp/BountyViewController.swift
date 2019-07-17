@@ -33,6 +33,17 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     /// 셀 클릭시 어떻게 할 것인지
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("======= \(indexPath.row) =======")
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? DetailViewController
+            if let index = sender as? Int {
+                vc?.name = nameList[index]
+                vc?.bounty = bountyList[index]
+            }
+        }
     }
     
     override func viewDidLoad() {
