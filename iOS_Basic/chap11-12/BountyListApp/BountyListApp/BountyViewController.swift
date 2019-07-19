@@ -9,13 +9,21 @@
 import UIKit
 
 class BountyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-    let nameList = ["brook", "chopper", "franky", "luffy", "nami", "robin", "sanji", "zoro"]
-    let bountyList = [3300000, 50, 44000000, 300000000, 16000000, 80000000, 77000000, 120000000 ]
     @IBOutlet weak var bountyTableView: UITableView!
-    
+    var bountyInfoList = [
+                            BountyInfo(name: "brook", bounty: 3300000),
+                            BountyInfo(name: "chopper", bounty: 50),
+                            BountyInfo(name: "franky", bounty: 44000000),
+                            BountyInfo(name: "luffy", bounty: 300000000),
+                            BountyInfo(name: "nami", bounty: 16000000),
+                            BountyInfo(name: "robin", bounty: 80000000),
+                            BountyInfo(name: "sanji", bounty: 77000000),
+                            BountyInfo(name: "zoro", bounty: 120000000),
+
+                         ]
     /// 데이터 몇개를 보여줄 것인가?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.nameList.count
+        return bountyInfoList.count
     }
 
     /// 셀은 어떻게 표현할 것인가? - customizing한 UITableViewCell인 ListCell을 사용한다.
@@ -25,10 +33,11 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
             return UITableViewCell()
         }
         /// img, name, bounty
-        let img = UIImage(named: "\(nameList[indexPath.row]).jpg")
+        let bountyInfo = bountyInfoList[indexPath.row]
+        let img = UIImage(named: "\(bountyInfo.name).jpg")
         cell.imgView.image = img
-        cell.nameLabel.text = nameList[indexPath.row]
-        cell.bountyLabel.text = "\(bountyList[indexPath.row])"
+        cell.nameLabel.text = bountyInfo.name
+        cell.bountyLabel.text = "\(bountyInfo.bounty)"
         return cell
     }
 
@@ -43,8 +52,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "showDetail" {
             let vc = segue.destination as? DetailViewController
             if let index = sender as? Int {
-                vc?.name = nameList[index]
-                vc?.bounty = bountyList[index]
+                vc?.bountyInfo = bountyInfoList[index]
             }
         }
     }

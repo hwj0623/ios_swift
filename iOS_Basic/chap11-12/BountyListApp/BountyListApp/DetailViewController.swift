@@ -14,20 +14,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bountyLabel: UILabel!
     
-    var name: String?
-    var bounty: Int?
+    var bountyInfo: BountyInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUIInfo()
     }
+    
     private func updateUIInfo(){
-        if let name = self.name, let bounty = self.bounty {
-            let img = UIImage(named: "\(name).jpg")
-            imgView.image = img
-            nameLabel.text = name
-            bountyLabel.text = "\(bounty)"
-        }
+        guard let bountyInfo = self.bountyInfo else { return }
+        let img = UIImage(named: "\(bountyInfo.name).jpg")
+        imgView.image = img
+        nameLabel.text = bountyInfo.name
+        bountyLabel.text = "\(bountyInfo.bounty)"
     }
+    
     @IBAction func close(_ sender: UIButton){
         dismiss(animated: true, completion: nil)
     }
