@@ -34,10 +34,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
         }
         /// img, name, bounty
         let bountyInfo = bountyInfoList[indexPath.row]
-        let img = UIImage(named: "\(bountyInfo.name).jpg")
-        cell.imgView.image = img
-        cell.nameLabel.text = bountyInfo.name
-        cell.bountyLabel.text = "\(bountyInfo.bounty)"
+        cell.updateUI(bountyInfo)
         return cell
     }
 
@@ -68,4 +65,9 @@ class ListCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bountyLabel: UILabel!
     
+    func updateUI(_ bountyInfo: BountyInfo){
+        imgView.image = bountyInfo.image
+        nameLabel.text = bountyInfo.name
+        bountyLabel.text = "\(bountyInfo.bounty)"
+    }
 }

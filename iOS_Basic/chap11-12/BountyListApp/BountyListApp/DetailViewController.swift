@@ -23,8 +23,7 @@ class DetailViewController: UIViewController {
     
     private func updateUIInfo(){
         guard let bountyInfo = self.bountyInfo else { return }
-        let img = UIImage(named: "\(bountyInfo.name).jpg")
-        imgView.image = img
+        imgView.image = bountyInfo.image
         nameLabel.text = bountyInfo.name
         bountyLabel.text = "\(bountyInfo.bounty)"
     }
