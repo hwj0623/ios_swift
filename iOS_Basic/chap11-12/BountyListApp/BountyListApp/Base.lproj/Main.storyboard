@@ -134,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-dg-C79">
-                                <rect key="frame" x="93" y="727" width="228" height="29"/>
+                                <rect key="frame" x="132" y="727" width="150.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="lyV-SG-7ea"/>
                                 </constraints>
@@ -153,7 +153,6 @@
                             <constraint firstItem="E2o-Wn-WIH" firstAttribute="bottom" secondItem="c0h-dg-C79" secondAttribute="bottom" constant="106" id="TeD-lg-So6"/>
                             <constraint firstItem="SOg-OJ-jIi" firstAttribute="centerX" secondItem="fxv-kP-nOs" secondAttribute="centerX" constant="2.5" id="XVL-xF-0jE"/>
                             <constraint firstItem="E2o-Wn-WIH" firstAttribute="trailing" secondItem="98u-i4-WEi" secondAttribute="trailing" constant="20" id="ZUA-Vr-zSH"/>
-                            <constraint firstItem="c0h-dg-C79" firstAttribute="leading" secondItem="E2o-Wn-WIH" secondAttribute="leading" constant="93" id="arm-aY-1yq"/>
                             <constraint firstItem="c0h-dg-C79" firstAttribute="centerX" secondItem="P8C-X2-WRj" secondAttribute="centerX" id="dnZ-bi-6AW"/>
                             <constraint firstItem="P8C-X2-WRj" firstAttribute="top" secondItem="E2o-Wn-WIH" secondAttribute="top" constant="80" id="efb-Ce-gWS"/>
                             <constraint firstItem="c0h-dg-C79" firstAttribute="top" secondItem="SOg-OJ-jIi" secondAttribute="bottom" constant="40" id="zh7-jC-HaX"/>
@@ -162,8 +161,10 @@
                     </view>
                     <connections>
                         <outlet property="bountyLabel" destination="c0h-dg-C79" id="new-4w-UAr"/>
+                        <outlet property="bountyLabelCenterX" destination="dnZ-bi-6AW" id="cUq-2Q-xKK"/>
                         <outlet property="imgView" destination="P8C-X2-WRj" id="fCc-Rs-Glo"/>
                         <outlet property="nameLabel" destination="SOg-OJ-jIi" id="E6s-HV-nsl"/>
+                        <outlet property="nameLabelCenterX" destination="XVL-xF-0jE" id="Rt6-Vu-f1E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8W-Hq-Vge" userLabel="First Responder" sceneMemberID="firstResponder"/>

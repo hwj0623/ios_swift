@@ -52,6 +52,7 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         let height: CGFloat = width * 10/7 + 65
         return CGSize.init(width: width, height: height)
     }
+    
     /*
      * tableView
      */
