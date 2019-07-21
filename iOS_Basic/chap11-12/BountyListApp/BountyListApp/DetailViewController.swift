@@ -52,7 +52,7 @@ class DetailViewController: UIViewController {
                             self.view.layoutIfNeeded()
                         },
                         completion: nil)
-
+        UIView.transition(with: imgView, duration: 0.7, options: .transitionCurlUp, animations: nil, completion: nil)
     }
     
     private func updateUIInfo(){
