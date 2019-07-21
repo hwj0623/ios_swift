@@ -33,20 +33,24 @@ class DetailViewController: UIViewController {
         super.viewDidAppear(animated)
         
         nameLabelCenterX.constant = 0
-        UIView.animate( withDuration: 0.3,
+        UIView.animate( withDuration: 0.5,
                         delay: 0,
-                        options: .curveEaseIn,
+                        usingSpringWithDamping: 0.6,
+                        initialSpringVelocity: 2,
+                        options: .allowUserInteraction,
                         animations: {
                             self.view.layoutIfNeeded()
                         },
                        completion: nil)
         bountyLabelCenterX.constant = 0
-        UIView.animate( withDuration: 0.3,
+        UIView.animate( withDuration: 0.5,
                         delay: 0.2,
-                        options: .curveEaseIn,
+                        usingSpringWithDamping: 0.6,
+                        initialSpringVelocity: 2,
+                        options: .allowUserInteraction,
                         animations: {
                             self.view.layoutIfNeeded()
-        },
+                        },
                         completion: nil)
 
     }
