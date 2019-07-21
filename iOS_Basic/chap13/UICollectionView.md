@@ -19,3 +19,44 @@
 
 
 TableView나 CollectionView도 cell에 대한 reuse를 위해 cell에 대해 Attribute Inspector에서 identifier를 지정하는 것이 좋다.
+
+
+
+
+
+
+
+----
+
+# Animation
+
+### Position & Size
+
+- bounds
+- frame
+- center
+
+
+
+### Transformation
+
+- rotation
+- scale
+- translation
+- CGAffineTransform을 사용ㄴ
+
+- 중첩하여 사용 가능
+
+
+
+### Appearance
+
+- backgroundColors
+- alpha
+
+
+
+### 주의
+
+- Autolayout과 상충되는 것에 대해서 조심해야 한다.
+

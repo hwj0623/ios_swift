@@ -28,10 +28,7 @@ class DetailViewController: UIViewController {
         nameLabelCenterX.constant = view.bounds.width
         bountyLabelCenterX.constant = view.bounds.width
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    private func animateNameLabel(){
         nameLabelCenterX.constant = 0
         UIView.animate( withDuration: 0.5,
                         delay: 0,
@@ -40,8 +37,10 @@ class DetailViewController: UIViewController {
                         options: .allowUserInteraction,
                         animations: {
                             self.view.layoutIfNeeded()
-                        },
-                       completion: nil)
+        },
+                        completion: nil)
+    }
+    private func animateBountLabel(){
         bountyLabelCenterX.constant = 0
         UIView.animate( withDuration: 0.5,
                         delay: 0.2,
@@ -50,9 +49,17 @@ class DetailViewController: UIViewController {
                         options: .allowUserInteraction,
                         animations: {
                             self.view.layoutIfNeeded()
-                        },
+        },
                         completion: nil)
+    }
+    private func transitImage(){
         UIView.transition(with: imgView, duration: 0.7, options: .transitionCurlUp, animations: nil, completion: nil)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateNameLabel()
+        animateBountLabel()
+        transitImage()
     }
     
     private func updateUIInfo(){
