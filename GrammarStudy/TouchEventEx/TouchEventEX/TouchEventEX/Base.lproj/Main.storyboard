@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TouchEventEX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="TouchEventEX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,9 +31,15 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
+                                                    <action selector="unnamed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AO3-Wj-Dkr"/>
                                                     <action selector="unnamed:" destination="dkx-z0-nzr" eventType="touchUpInside" id="cli-uW-hIf"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTq-4b-8eQ">
+                                                <rect key="frame" x="16" y="25" width="202" height="103"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.28665997980000002" green="0.80336576699999995" blue="0.36246249650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>

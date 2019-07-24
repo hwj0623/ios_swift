@@ -14,13 +14,17 @@ class ViewController: UIViewController {
     @IBAction func unnamed(_ sender: AnyObject){
         print("vc pressed")
         
-        nameText.resignFirstResponder() ///텍스트 필드를 firstResponder에서 해제한다.
+//        nameText.resignFirstResponder() ///텍스트 필드를 firstResponder에서 해제한다.
 //        nameText.becomeFirstResponder() ///텍스트 필드를 firstResponder로 만든다.
         
         /// 다음 responder에게 전달하는 방법 중 하나
         /// 모든 객체들이 특정 메서드를 호출할 수 있도록 하는 메서드
         /// with의 sender를 unnamed의 단일 파라미터로 넘긴다.
         ///next?.perform(#selector(unnamed(_:)), with: sender)
+        let otherViewController = UIStoryboard.init(name: "SecondScene", bundle: nil).instantiateViewController(withIdentifier: "SecondScene")
+        self.present(otherViewController, animated: true, completion: nil)
+//        var aViewController = UIViewController.init(nibName: "BlueView", bundle: nil)
+//        self.view.addSubview(aViewController.view)
     }
     
     @IBAction func inputTextView(_ sender: Any?){
