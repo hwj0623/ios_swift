@@ -1,4 +1,4 @@
-#UserDefaults 
+# UserDefaults 
 
 -  CoreData
   - 애플리케이션 사용자가 애플리케이션을 사용하면서 저장한 설정/값들을 서버가 아닌 클라이언트에 저장하기 위한 방식
@@ -46,9 +46,9 @@ UserDefaults.standard.value(forKey: "id")
 
 ### 참고 사이트
 
- [언제나 도움받는 이동건님의 이유있는 코드 블로그](https://baked-corn.tistory.com/49?category=718235) 
+ [이동건님의 이유있는 코드 블로그](https://baked-corn.tistory.com/49?category=718235) 
 
- [ZeddiOS- [iOS ) 왕초보를 위한 User Defaults사용해보기](https://zeddios.tistory.com/107)
+ [Zedd님 iOS ) 왕초보를 위한 User Defaults사용해보기](https://zeddios.tistory.com/107)
 
 [공식문서](https://developer.apple.com/documentation/foundation/UserDefaults)
 
