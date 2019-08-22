@@ -43,13 +43,23 @@ class Main {
         leetcode_14.start()
     }
     init(){}
+    static func pG_42888(){
+        var pg_42888 = Solution_42888()
+        pg_42888.start()
+    }
+    static func pG_42889(){
+        var pg_42889 = Solution_42889()
+        pg_42889.start()
+    }
 }
 
 //Main.leetCode_128()
 //Main.leetCode_852()
 //Main.leetCode_162()
 //Main.leetCode_189()
-Main.leetCode_14()
+//Main.leetCode_14()
+//Main.pG_42888()
+Main.pG_42889()
 //    var sol_42746 = Solution_42746()
 //
 //    for i in 0..<5{
