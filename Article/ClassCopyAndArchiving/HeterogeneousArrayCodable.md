@@ -2,31 +2,34 @@
 
 @godrm (A.k.a JK) 께서 제기한 이슈로, Codable을 채택한 상속구조의 클래스 배열을 저장할 때 하위 클래스에 대한 정보가 사라지는 아래와 같은 이슈가 발생함.
 [출처](https://gist.github.com/godrm/24ce6b64c3944da2074a020de84a9048)
+
+
+
 ```swift
 class Animal : Codable {
     var type : String {
         return "animal"
     }
 }
-​
-​class Dog : Animal {
-    ​override var type : String {
-    ​   return "dog"
-    ​}
-​}
-​
-​class Cat : Animal {
-    ​override var type : String {
-        ​return "cat"
-    ​}
-​}
-​
-​var array : [Animal] = [Dog(), Cat(), Dog(), Cat()];
-​
-​var data = try PropertyListEncoder().encode(array)
-​var restoreArray = try? PropertyListDecoder().decode(Array<Animal>.self, from: data)
-​
-​restoreArray?.forEach{ print($0.type) } ///animal만 4개 나옴
+
+class Dog : Animal {
+    override var type : String {
+        return "dog"
+    }
+}
+
+class Cat : Animal {
+    override var type : String {
+        return "cat"
+    }
+}
+
+var array : [Animal] = [Dog(), Cat(), Dog(), Cat()];
+
+var data = try PropertyListEncoder().encode(array)
+var restoreArray = try? PropertyListDecoder().decode(Array<Animal>.self, from: data)
+
+restoreArray?.forEach{ print($0.type) } ///animal만 4개 나옴
 ```
 
 서로 이질적인 요소(상속관계의 인스턴스들)을 같은 자료구조에 저장 후 복원하는 좋은 방법이 없을까 공부하다가 아래의 글을 찾아서 학습 내용을 정리하였습니다. 
@@ -454,7 +457,7 @@ An alcoholic beverage, best drunk on fridays after work
   #### 해결방안 - NSCoding 을 사용하는 방식
   - 단점 : NSCoding으로 encode, init(aCoder: NSCoder) 를 사용하는 경우, 상속관계를 유지할 수 있습니다. 다만, **JSONEncoder를 사용할 수 없습니다.** JSONEncoder의 대상은 Codable 프로토콜을 채택해야 하기 때문입니다.
      (내부에 plist 형태로 저장은 가능하나..)
-    
+  
   #### 해결방안 - 구조체로 변환
  - 별도의 커스텀 코드가 필요없기 때문에 권장되는 방식입니다. JSONEncoder를 사용하기에도 무리는 없습니다.
   - 서브 클래스의 프로퍼티에 대해서는 **옵셔널 타입을 선언하는 방식**으로 계층구조를 없애버립니다.

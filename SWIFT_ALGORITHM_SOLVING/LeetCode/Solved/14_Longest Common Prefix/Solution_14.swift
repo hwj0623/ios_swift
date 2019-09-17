@@ -12,26 +12,6 @@ import Foundation
 
 
 class Solution_Leetcode_14{
-//    func longestCommonPrefix(_ strs: [String]) -> String {
-//        var result = ""
-//
-//        guard let firstWord = strs.first, let shortestWordCount = strs.map({$0.count}).min(), shortestWordCount > 0 else {
-//            return result
-//
-//        }
-//
-//        for (index, char) in firstWord.enumerated() {
-//            let matchedWords = strs.filter({$0[$0.index($0.startIndex, offsetBy: index)] == char})
-//            if matchedWords.count == strs.count {
-//                result.append(char)
-//            } else {
-//                return result
-//            }
-//            if index == shortestWordCount - 1 { return result }
-//        }
-//
-//        return result
-//    }
     
     func longestCommonPrefix(_ strs: [String]) -> String {
         let allCount = strs.count

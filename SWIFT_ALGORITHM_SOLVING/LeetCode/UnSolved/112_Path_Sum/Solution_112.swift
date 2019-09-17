@@ -20,9 +20,9 @@ class Solution_Leetcode_112{
         }
     }
     
-    func hasPathSum(_ root: TreeNode?, _ sum: Int) -> Bool {
-        
-    }
+//    func hasPathSum(_ root: TreeNode?, _ sum: Int) -> Bool {
+//        
+//    }
     
     func start(){
         
