@@ -14,6 +14,7 @@ class RepeatPermuationEx2 {
      r 은 중복을 포함하여 뽑을 개수
      arr은 현재 조합중인 배열
      subject는 원본 배열
+     check는 자기자신을 포함하지 않는 중복순열
      */
     func combination(n: Int, r: Int, arr: [Int], subject: [Int], check: [Bool]){
         var curArr = arr
