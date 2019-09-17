@@ -52,16 +52,203 @@ import Foundation
      5초에서 네트워크 장애가 발생했다. 1번 음식을 섭취해야 할 때 중단되었으므로, 장애 복구 후에 1번 음식부터 다시 먹기 시작하면 된다.
  */
 class Solution_42891 {
+    
     func solution(_ food_times:[Int], _ k:Int64) -> Int {
-        return 0
+        var totalDishTimes: Int64 = 0
+        var tempDict = [Int : Int]()
+        for i in 0..<food_times.endIndex{
+            tempDict.updateValue(food_times[i], forKey: i+1)
+            totalDishTimes += Int64(food_times[i])
+        }
+        var sorted = tempDict.sorted{ (lhs: (key: Int, value: Int), rhs: (key: Int, value: Int)) -> Bool in
+            return lhs.value < rhs.value
+        }
+        var totalK = k          /// 총 시간
+        var minTimes = 0        /// 현재 뺄 최소 시간
+        var size = 0            /// 한번에 뺄 접시 개수
+        var index = 0           /// 시간순으로 정렬된 접시 인덱스
+        var cumulatedMinus = 0  /// 현재까지 뺀 값
+        /// 최소 시간 * 단위 접시 수 보다 k가 클 때
+        
+        if totalDishTimes <= k { /// 중단되는 시간보다 접시 소요시간이 작다면 -1
+            return -1
+        }
+        var result = 0
+        while totalK >= 0 {
+            minTimes = sorted[index].value - cumulatedMinus // 현재 뺄 최소시간 계산
+            cumulatedMinus += minTimes               /// 뺀 최소 단위 누적 시간 업데이트
+            size = sorted.endIndex - index           /// 접시 계산
+            
+            if totalK == 0 {
+                let sortedByKeys = sorted[index..<sorted.endIndex].sorted{ (lhs: (key: Int, value: Int), rhs: (key: Int, value: Int)) -> Bool in
+                    lhs.key < rhs.key
+                }
+                result = sortedByKeys[Int(totalK)].key
+                break
+            }else if totalK < (minTimes * size) {
+                let sortedByKeys = sorted[index..<sorted.endIndex].sorted{ (lhs: (key: Int, value: Int), rhs: (key: Int, value: Int)) -> Bool in
+                    lhs.key < rhs.key
+                }
+                totalK = totalK % Int64(sortedByKeys.endIndex)
+                result = sortedByKeys[Int(totalK)].key
+                break
+            }
+            
+            totalK -= Int64(minTimes) * Int64(size) ///시간 제거
+            /// 다음 시작 접시 인덱스를 찾는다.
+            for i in index..<sorted.endIndex{
+                if sorted[i].value > cumulatedMinus {
+                    index = i
+                    break
+                }
+            }
+        }
+        return result
     }
-}
+    
+//    func solution3(_ food_times:[Int], _ k:Int64) -> Int {
+//        ///단위 접시 크기
+//        var dishSize = 0
+//        var deleteAmount = 0
+//        var totalTime = k
+//        var startIndex = 0
+//        var backup_food_times = [(key: Int, dishes: Int)]()
+//        var sorted_food_times = [(key: Int, dishes: Int)]()
+//        for i in 0..<food_times.endIndex {
+//            backup_food_times.append((key: i+1, dishes: food_times[i]))
+//            sorted_food_times.append((key: i+1, dishes: food_times[i]))
+//        }
+//        sorted_food_times.sort { (lhs: (key: Int, dishes: Int), rhs: (key: Int, dishes: Int)) -> Bool in
+//            if lhs.dishes < rhs.dishes {
+//                return true
+//            }else if lhs.dishes == rhs.dishes {
+//                return lhs.key < rhs.key
+//            }else{
+//                return false
+//            }
+//        }
+//
+//        while totalTime > 0 {
+//            let size = ( sorted_food_times.endIndex - startIndex ) /// n - i , 0 아닌 그릇의 크기
+//            let amount = sorted_food_times[startIndex].dishes      /// 정렬된 유효 그릇의 최소 양
+//            let deleted = Int64(size) * Int64(amount)
+//
+//            if totalTime >= deleted {
+//                totalTime -= deleted
+//                if totalTime == 0 { ///total Time 전부 제거시, 0이 아닌 startIndex 찾아서 key를 구한다.
+//                    for i in startIndex..<sorted_food_times.endIndex {
+//                        sorted_food_times[i].dishes -= amount
+////                        if sorted_food_times[i].dishes > 0 {
+////                            startIndex = i
+////                            let result = sorted_food_times[startIndex].key - 1
+////                            return backup_food_times[result].key
+////                        }
+//                    }
+//                     return -1
+//                }
+//            }else { /// if totalTime < deleted ; 삭제할 단위크기묶음보다 totalTime이 작다면,
+//                    /// loop(startIndex..<backup.endIndex)로 다음 key를 찾아야 한다.
+//                    /// ex: deleted = 15이고, totalTime은 12, 유효배열의 크기는 전체 10개중 오른쪽 5개 라고 하면
+//                let validSize = (sorted_food_times.endIndex - startIndex)
+//                if totalTime >= validSize {
+//                    let sortedArrayIndex = startIndex + Int((totalTime % Int64(sorted_food_times.endIndex)))
+//                    let resultIndex = sorted_food_times[sortedArrayIndex].key
+//                    return backup_food_times[resultIndex-1].key
+//                }else {
+//                    let sortedArrayIndex = startIndex + Int(totalTime)
+//                    return backup_food_times[sortedArrayIndex].key
+//                }
+//            }
+//            /// sorted array의 나머지 값들을 갱신한다. startIndex도 갱신
+//            for i in startIndex..<sorted_food_times.endIndex {
+//                sorted_food_times[i].dishes -= amount
+//                if sorted_food_times[i].dishes < 0 {
+//                    startIndex = i
+//                }
+//            }
+//            startIndex += 1
+//        }
+//        return -1
+//    }
+//
+//    func solution2(_ food_times:[Int], _ k:Int64) -> Int {
+//        var tempTimes = [ (key: Int, count: Int)]()
+//        var backup_food_times = [ (key: Int, count: Int)]()
+//        var totalTime = k
+//        for index in 0..<food_times.endIndex {
+//            tempTimes.append((key: index+1, count: food_times[index]))
+//            backup_food_times.append((key: index+1, count: food_times[index]))
+//        }
+//        var sortedTimes = tempTimes.sorted { (lhs: (key: Int, count: Int), rhs: (key: Int, count: Int)) -> Bool in
+//            if lhs.count < rhs.count {
+//                return true
+//            }else if lhs.count == rhs.count {
+//                return lhs.key < rhs.key
+//            }
+//            return false
+//        }
+//        var minimumDishCount: Int64 = 0        /// 현재 소비할 시간 크기
+//        var curDishSize: Int64 = 0             /// 현재 소비할 접시의 개수
+//
+//        while totalTime > 0 {
+//            minimumDishCount = 0
+//            curDishSize = 0
+//            if sortedTimes.endIndex > 0 {
+//                minimumDishCount = Int64(sortedTimes[0].count)
+//                curDishSize = Int64(sortedTimes.endIndex)
+//            }else {
+//                return -1
+//            }
+//
+//            let deleted = minimumDishCount * curDishSize    ///전체 시간에서 지울 시간
+//            if totalTime >= deleted {
+//                totalTime -= deleted
+//            }else {
+//                if totalTime >= sortedTimes.endIndex {
+//                    let resultIndex = Int(totalTime) % (sortedTimes.endIndex)
+//                    let result = backup_food_times[resultIndex].key
+//                    return result
+//                }else {
+//                    let result = backup_food_times[Int(totalTime)].key
+//                    return result
+//                }
+//            }
+//            ///현재 접시들 중에서 최소 시간 단위만큼을 빼준다.
+//            for index in 0..<sortedTimes.endIndex {
+//                sortedTimes[index].count -= Int(minimumDishCount)
+//                backup_food_times[index].count -= Int(minimumDishCount)
+//            }
+//            /// 접시 카운트 0 짜리 필터링
+//            sortedTimes = sortedTimes.filter { (element: (key: Int, count: Int)) -> Bool in
+//                return element.count > 0
+//            }
+//            backup_food_times = backup_food_times.filter { (element: (key: Int, count: Int)) -> Bool in
+//                return element.count > 0
+//            }
+//            if totalTime == 0 {
+//                if backup_food_times.count > 0 {
+//                    let result = backup_food_times[0].key
+//                    return result
+//                }else {
+//                    return -1
+//                }
+//            }
+//        }
+//        return -1
+//    }
+    func start(){
+        let testArray = [3, 1, 2]
+        let testArray2 = [1000]
 
+        let k: Int64 = 1
+        print(solution(testArray, 1))
+        print(solution(testArray, 2))
+        print(solution(testArray, 3))
+        print(solution(testArray, 4))
+        print(solution(testArray, 5))
+        print(solution(testArray, 6))
+        print(solution(testArray2, 50))
 
-public class LinkedList<T> {
-    var data: T
-    var next: LinkedList?
-    public init(data: T){
-        self.data = data
+        
     }
 }

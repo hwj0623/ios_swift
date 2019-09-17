@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+
+class Solution_kakao5 {
+    
+    
+    func start(){
+        
+    }
+}

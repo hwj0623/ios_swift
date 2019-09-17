@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class Solution_kakao3 {
+    
+    
+    func start(){
+        
+    }
+}
