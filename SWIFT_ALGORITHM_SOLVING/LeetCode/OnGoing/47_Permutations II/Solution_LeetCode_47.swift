@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class Solution_LeetCode_47{
+    func permuteUnique(_ nums: [Int]) -> [[Int]] {
+        
+        return [[]]
+    }
+    func start(){
+        let input = [1,1,2]
+        print(permuteUnique(input))
+    }
+}

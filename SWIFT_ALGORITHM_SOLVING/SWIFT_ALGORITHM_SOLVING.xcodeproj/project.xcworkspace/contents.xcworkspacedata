@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:../LeetCode/581_Shortest Unsorted Continuous Subarray">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

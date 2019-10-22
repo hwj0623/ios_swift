@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="InternationalizationAndLocalization/Base.lproj/Main.storyboard" source-language="en" target-language="ko" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.0" build-num="11A420a"/>
+    </header>
+    <body>
+      <trans-unit id="MKb-94-dyx.normalTitle" xml:space="preserve">
+        <source>settings</source>
+        <target>환경 설정</target>
+        <note>Class = "UIButton"; normalTitle = "settings"; ObjectID = "MKb-94-dyx";</note>
+      </trans-unit>
+      <trans-unit id="N7i-zZ-Co2.text" xml:space="preserve">
+        <source>First View</source>
+        <target>첫 화면임</target>
+        <note>Class = "UILabel"; text = "First View"; ObjectID = "N7i-zZ-Co2";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="InternationalizationAndLocalization/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="ko">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.0" build-num="11A420a"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>InternationalizationAndLocalization</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="InternationalizationAndLocalization/en.lproj/Localization.strings" source-language="en" target-language="ko" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.0" build-num="11A420a"/>
+    </header>
+    <body>
+      <trans-unit id="greeting" xml:space="preserve">
+        <source>Hello</source>
+        <target>안녕하세요</target>
+        <note>Localization.strings
+  InternationalizationAndLocalization
+
+  Created by hw on 23/09/2019.
+  Copyright © 2019 hwj. All rights reserved. &amp; eng</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
